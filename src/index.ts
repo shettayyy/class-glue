@@ -32,7 +32,7 @@ type ClassValue =
  * @param {...ClassValue} args - Any number of class values to be combined.
  * @returns {string} A string of combined class names.
  */
-export function cx(...args: ClassValue[]): string {
+export default function cx(...args: ClassValue[]): string {
   let result = '';
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];

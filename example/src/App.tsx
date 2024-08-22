@@ -1,4 +1,4 @@
-import { cx } from 'class-x'; // Import the cx function from your library
+import cx from 'class-x'; // Import the cx function from your library
 import { useState } from 'react';
 import './App.css';
 
