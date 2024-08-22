@@ -12,6 +12,7 @@
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "tsc && tsc -p tsconfig.esm.json",
+    "example": "npm run build && cd example && npm install && npm run dev",
     "lint": "biome check .",
     "lint:fix": "biome check --apply .",
     "format": "biome format .",
