@@ -1,0 +1,73 @@
+{
+  "name": "class-x",
+  "version": "1.0.0",
+  "description": "Dynamic class name generation made easy with a lightweight utility to simplify styling in React, React Native, and more. No fuss, just class names! 💅✨",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc && tsc -p tsconfig.esm.json",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shettayyy/class-x.git"
+  },
+  "keywords": [
+    "classname",
+    "classnames",
+    "classes",
+    "react",
+    "css",
+    "html",
+    "react-native",
+    "string",
+    "style",
+    "stylesheet",
+    "styles",
+    "utility"
+  ],
+  "author": "Rahul Shetty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shettayyy/class-x/issues"
+  },
+  "homepage": "https://github.com/shettayyy/class-x#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@size-limit/preset-small-lib": "^11.1.4",
+    "@vitest/coverage-v8": "^2.0.5",
+    "husky": "^9.0.11",
+    "rimraf": "^6.0.1",
+    "size-limit": "^11.1.4",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "300 B"
+    },
+    {
+      "path": "dist/index.mjs",
+      "limit": "300 B"
+    }
+  ]
+}
