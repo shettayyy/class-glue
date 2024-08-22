@@ -46,7 +46,7 @@ function App() {
           { 'docs-highlighted': count > 3 },
         ])}
       >
-        The classes of this text change based on the count.
+        The classes of the above content change based on the count.
       </p>
     </>
   );
