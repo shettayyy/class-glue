@@ -31,9 +31,7 @@ function App() {
 
   return (
     <>
-      <h1 className={cx('title', { 'title-active': isActive })}>
-        Class X Demo
-      </h1>
+      <h1 className={cx('title', { 'title-active': isActive })}>Class X</h1>
       <div className={cardClasses}>
         <button type="button" className={buttonClasses} onClick={handleClick}>
           Count: {count}
