@@ -132,11 +132,3 @@ button:focus-visible {
 .odd-count {
   border: 2px solid red;
 }
-
-.title {
-  color: #ffffff;
-}
-
-.title-active {
-  color: #646cff
-}

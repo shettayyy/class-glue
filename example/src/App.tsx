@@ -3,6 +3,7 @@ import classXObjectString from 'class-x/object-string'; // Import the classX fun
 import classXString from 'class-x/string'; // Import the classX function from your library
 import { useState } from 'react';
 import './App.css';
+import appStyles from './app.module.css';
 
 // Helper function to generate random color
 const getRandomColor = () =>
@@ -27,7 +28,11 @@ function App() {
     [`card-color-${count}`]: true,
   });
 
-  const titleClasses = classXString('title', isActive && 'title-active');
+  // Example usage of classXString function with CSS modules
+  const titleClasses = classXString(
+    `${appStyles.title}`,
+    isActive && `${appStyles.titleActive}`,
+  );
 
   const messageClasses = classX('message', [
     'additional-message',
