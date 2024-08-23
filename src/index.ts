@@ -21,6 +21,8 @@ type ClassValue =
  * - Falsy values (false, null, undefined, 0, ""): Ignored
  *
  * @example
+ * import cx from 'class-x';
+ *
  * cx('foo', 'bar'); // 'foo bar'
  * cx('foo', { bar: true, baz: false }); // 'foo bar'
  * cx('foo', ['bar', { baz: true }]); // 'foo bar baz'
