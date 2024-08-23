@@ -8,12 +8,35 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./object-string": {
+      "import": "./dist/esm/object-string.js",
+      "require": "./dist/object-string.js",
+      "types": "./dist/object-string.d.ts"
+    },
+    "./string": {
+      "import": "./dist/esm/string.js",
+      "require": "./dist/string.js",
+      "types": "./dist/string.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["dist/*"]
+    }
+  },
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "tsc && tsc -p tsconfig.esm.json",
-    "watch": "tsc -w & tsc -w -p tsconfig.esm.json",
-    "example": "concurrently \"npm run watch\" \"cd example && npm install && npm run dev\"",
+    "prebuild:watch": "npm run clean",
+    "build:watch": "tsc -w & tsc -w -p tsconfig.esm.json",
+    "example": "concurrently \"npm run build:watch\" \"cd example && npm install && npm run dev\"",
     "lint": "biome check .",
     "lint:fix": "biome check --apply .",
     "format": "biome format .",

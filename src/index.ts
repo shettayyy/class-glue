@@ -21,11 +21,11 @@ type ClassValue =
  * - Falsy values (false, null, undefined, 0, ""): Ignored
  *
  * @example
- * import cx from 'class-x';
+ * import classX from 'class-x';
  *
- * cx('foo', 'bar'); // 'foo bar'
- * cx('foo', { bar: true, baz: false }); // 'foo bar'
- * cx('foo', ['bar', { baz: true }]); // 'foo bar baz'
+ * classX('foo', 'bar'); // 'foo bar'
+ * classX('foo', { bar: true, baz: false }); // 'foo bar'
+ * classX('foo', ['bar', { baz: true }]); // 'foo bar baz'
  *
  * @note
  * For optimal performance, pass only plain objects or objects created with Object.create(null)
@@ -34,7 +34,7 @@ type ClassValue =
  * @param {...ClassValue} args - Any number of class values to be combined.
  * @returns {string} A string of combined class names.
  */
-export default function cx(...args: ClassValue[]): string {
+export default function classX(...args: ClassValue[]): string {
   let result = '';
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
@@ -43,7 +43,7 @@ export default function cx(...args: ClassValue[]): string {
       if (typeof arg === 'string' || typeof arg === 'number') {
         result += result ? ` ${arg}` : `${arg}`;
       } else if (Array.isArray(arg)) {
-        const inner = cx.apply(null, arg);
+        const inner = classX.apply(null, arg);
 
         if (inner) {
           result += result ? ` ${inner}` : inner;

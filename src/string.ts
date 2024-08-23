@@ -7,11 +7,11 @@
  * - Empty strings, null, or undefined: Ignored
  *
  * @example
- * import cx from 'class-x/string';
+ * import classX from 'class-x/string';
  *
- * cx('foo', 'bar'); // 'foo bar'
- * cx('foo', '', 'baz'); // 'foo baz'
- * cx('foo', undefined, 'bar', null, 'baz'); // 'foo bar baz'
+ * classX('foo', 'bar'); // 'foo bar'
+ * classX('foo', '', 'baz'); // 'foo baz'
+ * classX('foo', undefined, 'bar', null, 'baz'); // 'foo bar baz'
  *
  * @note
  * This is a lightweight version optimized for string-only inputs. For more complex
@@ -21,7 +21,9 @@
  * @param {...string} args - Any number of string class names to be combined.
  * @returns {string} A string of combined class names.
  */
-export default function cx(...args: string[]) {
+export default function classX(
+  ...args: Array<string | undefined | null | boolean>
+) {
   let result = '';
   let first = true;
   const len = args.length;

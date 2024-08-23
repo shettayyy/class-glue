@@ -108,8 +108,16 @@ button:focus-visible {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.read-the-docs {
+.message {
   color: #888;
+}
+
+.message-highlighted {
+  color: #646cff;
+}
+
+.additional-message {
+  font-style: italic;
 }
 
 .button-active {
@@ -123,4 +131,12 @@ button:focus-visible {
 
 .odd-count {
   border: 2px solid red;
+}
+
+.title {
+  color: #ffffff;
+}
+
+.title-active {
+  color: #646cff
 }
