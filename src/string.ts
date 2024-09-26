@@ -17,9 +17,6 @@
  * This is a lightweight version optimized for string-only inputs. For more complex
  * class name combinations involving objects or arrays, use the full `class-x`
  * package.
- *
- * @param {...string} args - Any number of string class names to be combined.
- * @returns {string} A string of combined class names.
  */
 export default function classX(
   ...args: Array<string | undefined | null | boolean>

@@ -31,8 +31,6 @@ type ClassValue =
  * For optimal performance, pass only plain objects or objects created with Object.create(null)
  * when using object syntax. The function does not check for inherited properties.
  *
- * @param {...ClassValue} args - Any number of class values to be combined.
- * @returns {string} A string of combined class names.
  */
 export default function classX(...args: ClassValue[]): string {
   let result = '';

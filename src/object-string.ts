@@ -11,10 +11,6 @@
  * classX({ foo: true, bar: false, baz: true }); // 'foo baz'
  * classX({ a: 1, b: 0, c: null, d: undefined, e: 'yes' }); // 'a e'
  *
- * @param {Object} obj - An object where keys are potential class names
- *                       and values determine inclusion.
- * @param {boolean|null|undefined} obj[key] - Truthy values include the key in the output.
- * @returns {string} A space-separated string of class names.
  */
 export default function classX(obj: {
   [key: string]: boolean | undefined | null;
