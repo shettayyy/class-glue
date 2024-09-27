@@ -14,10 +14,10 @@
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./object-to-string": {
-      "import": "./dist/esm/object-to-string.js",
-      "require": "./dist/object-to-string.js",
-      "types": "./dist/object-to-string.d.ts"
+    "./keys-to-strings": {
+      "import": "./dist/esm/keys-to-strings.js",
+      "require": "./dist/keys-to-strings.js",
+      "types": "./dist/keys-to-strings.d.ts"
     },
     "./join-strings": {
       "import": "./dist/esm/join-strings.js",

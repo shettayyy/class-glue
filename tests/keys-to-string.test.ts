@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import classX from '../src/object-to-string';
+import classX from '../src/keys-to-strings';
 
 describe('classX Object String function', () => {
   it('should return an empty string for an empty object', () => {

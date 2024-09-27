@@ -1,7 +1,7 @@
 import classX from 'class-x'; // Import the cx function from your library
 import classXString from 'class-x/join-strings'; // Import the classX function from your library
+import cxKeys2Strings from 'class-x/keys-to-strings'; // Import the classX function from your library
 import createClassX from 'class-x/merge-module-strings'; // Import the createClassX function from your library
-import classXObjectString from 'class-x/object-to-string'; // Import the classX function from your library
 import { useState } from 'react';
 import './App.css';
 import appStyles from './app.module.css';
@@ -10,6 +10,7 @@ import appStyles from './app.module.css';
 const getRandomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
+// createClassX accepts a CSS module object and returns a function that merges class names
 const cxModule = createClassX(appStyles);
 
 function App() {
@@ -24,8 +25,8 @@ function App() {
     count % 2 === 0 ? 'even-count' : 'odd-count',
   );
 
-  // Example usage of classXObjectString function
-  const cardClasses = classXObjectString({
+  // Example usage of cxKeys2Strings function
+  const cardClasses = cxKeys2Strings({
     card: true,
     'card-highlighted': count > 5,
     [`card-color-${count}`]: true,
