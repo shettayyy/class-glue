@@ -1,5 +1,4 @@
-import type { Properties as CSSProperties } from 'csstype';
-type StyleObj = { [key: string]: CSSProperties };
+type StyleObj = { [key: string]: unknown };
 type ClassValue =
   | string
   | number

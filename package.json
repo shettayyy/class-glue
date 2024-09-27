@@ -28,6 +28,11 @@
       "import": "./dist/esm/merge-module-strings.js",
       "require": "./dist/merge-module-strings.js",
       "types": "./dist/merge-module-strings.d.ts"
+    },
+    "./merge-styles": {
+      "import": "./dist/esm/merge-styles.js",
+      "require": "./dist/merge-styles.js",
+      "types": "./dist/merge-styles.d.ts"
     }
   },
   "typesVersions": {
@@ -87,7 +92,6 @@
     "@size-limit/preset-small-lib": "^11.1.4",
     "@vitest/coverage-v8": "^2.0.5",
     "concurrently": "^8.2.2",
-    "csstype": "^3.1.3",
     "husky": "^9.0.11",
     "rimraf": "^6.0.1",
     "size-limit": "^11.1.4",

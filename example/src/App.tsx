@@ -2,6 +2,7 @@ import classX from 'class-x'; // Import the cx function from your library
 import classXString from 'class-x/join-strings'; // Import the classX function from your library
 import cxKeys2Strings from 'class-x/keys-to-strings'; // Import the classX function from your library
 import createClassX from 'class-x/merge-module-strings'; // Import the createClassX function from your library
+import createClassXStyles from 'class-x/merge-styles'; // Import the createClassX function from your library
 import { useState } from 'react';
 import './App.css';
 import appStyles from './app.module.css';
@@ -17,6 +18,13 @@ function App() {
   const [count, setCount] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [dynamicColor, setDynamicColor] = useState(getRandomColor());
+
+  const styles = {
+    dynamicColor: { color: dynamicColor },
+    description: { letterSpacing: '2px' },
+  };
+
+  const cxStyles = createClassXStyles(styles);
 
   // Example usage of classX function
   const buttonClasses = classX(
@@ -56,7 +64,7 @@ function App() {
     <>
       <h1 className={titleClasses}>Class X</h1>
 
-      <p className={subtitleClasses}>
+      <p className={subtitleClasses} style={cxStyles('dynamicColor')}>
         Class X is a lightweight utility library for dynamically generating
         class
       </p>
@@ -65,7 +73,7 @@ function App() {
         <button type="button" className={buttonClasses} onClick={handleClick}>
           Count: {count}
         </button>
-        <p style={{ color: dynamicColor }}>
+        <p style={cxStyles('dynamicColor', { description: isActive })}>
           This text color changes on each click!
         </p>
       </div>
