@@ -19,10 +19,10 @@
       "require": "./dist/object-to-string.js",
       "types": "./dist/object-to-string.d.ts"
     },
-    "./merge-strings": {
-      "import": "./dist/esm/merge-strings.js",
-      "require": "./dist/merge-strings.js",
-      "types": "./dist/merge-strings.d.ts"
+    "./join-strings": {
+      "import": "./dist/esm/join-strings.js",
+      "require": "./dist/join-strings.js",
+      "types": "./dist/join-strings.d.ts"
     },
     "./merge-module-strings": {
       "import": "./dist/esm/merge-module-strings.js",

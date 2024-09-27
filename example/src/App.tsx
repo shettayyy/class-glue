@@ -1,6 +1,6 @@
 import classX from 'class-x'; // Import the cx function from your library
+import classXString from 'class-x/join-strings'; // Import the classX function from your library
 import createClassX from 'class-x/merge-module-strings'; // Import the createClassX function from your library
-import classXString from 'class-x/merge-strings'; // Import the classX function from your library
 import classXObjectString from 'class-x/object-to-string'; // Import the classX function from your library
 import { useState } from 'react';
 import './App.css';
