@@ -1,6 +1,6 @@
-type ClassObject = { [key: string]: boolean | undefined | null };
-type ClassArray = ClassValue[];
-type ClassValue =
+export type ClassObject = { [key: string]: boolean | undefined | null };
+export type ClassArray = ClassValue[];
+export type ClassValue =
   | string
   | number
   | boolean

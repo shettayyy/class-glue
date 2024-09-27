@@ -100,6 +100,14 @@ button:focus-visible {
   }
 }
 
+.subtitle {
+  text-decoration: none;
+}
+
+.subtitleActive {
+  text-decoration: underline;
+}
+
 .card {
   padding: 2em;
 }

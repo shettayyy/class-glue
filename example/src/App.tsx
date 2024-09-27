@@ -1,6 +1,7 @@
 import classX from 'class-x'; // Import the cx function from your library
-import classXObjectString from 'class-x/object-string'; // Import the classX function from your library
-import classXString from 'class-x/string'; // Import the classX function from your library
+import createClassX from 'class-x/merge-module-strings'; // Import the createClassX function from your library
+import classXString from 'class-x/merge-strings'; // Import the classX function from your library
+import classXObjectString from 'class-x/object-to-string'; // Import the classX function from your library
 import { useState } from 'react';
 import './App.css';
 import appStyles from './app.module.css';
@@ -8,6 +9,8 @@ import appStyles from './app.module.css';
 // Helper function to generate random color
 const getRandomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+
+const cxModule = createClassX(appStyles);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,10 +31,13 @@ function App() {
     [`card-color-${count}`]: true,
   });
 
-  // Example usage of classXString function with CSS modules
-  const titleClasses = classXString(
-    `${appStyles.title}`,
-    isActive && `${appStyles.titleActive}`,
+  // Example usage of classX Module Strings function with CSS modules
+  const titleClasses = cxModule('title', { titleActive: isActive });
+
+  // Example usage of classX Strings
+  const subtitleClasses = classXString(
+    'subtitle',
+    isActive && 'subtitleActive',
   );
 
   const messageClasses = classX('message', [
@@ -48,6 +54,12 @@ function App() {
   return (
     <>
       <h1 className={titleClasses}>Class X</h1>
+
+      <p className={subtitleClasses}>
+        Class X is a lightweight utility library for dynamically generating
+        class
+      </p>
+
       <div className={cardClasses}>
         <button type="button" className={buttonClasses} onClick={handleClick}>
           Count: {count}
@@ -56,6 +68,7 @@ function App() {
           This text color changes on each click!
         </p>
       </div>
+
       <p className={messageClasses}>
         The classes of the above content change based on the count.
       </p>

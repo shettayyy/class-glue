@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import classX from '../src/string';
+import classX from '../src/merge-strings';
 
 describe('classX (string version)', () => {
   it('should return an empty string for no arguments', () => {
