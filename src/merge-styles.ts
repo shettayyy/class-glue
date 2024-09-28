@@ -1,12 +1,6 @@
+import type { ClassValue } from './types';
+
 type StyleObj = { [key: string]: unknown };
-type ClassValue =
-  | string
-  | number
-  | boolean
-  | undefined
-  | null
-  | { [key: string]: unknown }
-  | ClassValue[];
 
 /**
  * Combines multiple class values into a single style object.

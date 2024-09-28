@@ -1,13 +1,4 @@
-export type ClassObject = { [key: string]: boolean | undefined | null };
-export type ClassArray = ClassValue[];
-export type ClassValue =
-  | string
-  | number
-  | boolean
-  | null
-  | undefined
-  | ClassObject
-  | ClassArray;
+import type { ClassValue } from './types';
 
 /**
  * Combines multiple class values into a single string.
