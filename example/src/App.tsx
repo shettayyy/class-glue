@@ -41,7 +41,24 @@ function App() {
   });
 
   // Example usage of classX Module Strings function with CSS modules
-  const titleClasses = cxModule('title', { titleActive: isActive });
+  const titleClasses = cxModule(
+    'title',
+    '',
+    null,
+    undefined,
+    'hello',
+    [
+      'title',
+      'world',
+      {
+        titleActive: isActive,
+      },
+    ],
+    {
+      titleActive: isActive,
+    },
+  );
+  console.log(titleClasses);
 
   // Example usage of classX Strings
   const subtitleClasses = classXString(

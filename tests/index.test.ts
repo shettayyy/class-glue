@@ -1,5 +1,5 @@
+import classX from 'class-x';
 import { describe, expect, it } from 'vitest';
-import classX from '../src/index';
 
 describe('classX function', () => {
   it('combines string arguments', () => {

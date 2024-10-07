@@ -1,4 +1,5 @@
-import classX, { type ClassValue } from './index';
+import classX from './index';
+import type { ClassValue } from './types';
 
 type StyleModule = { [key: string]: string };
 
@@ -16,22 +17,26 @@ type StyleModule = { [key: string]: string };
  * cx('title', { titleActive: true }); // Returns: "styles.title styles.titleActive"
  */
 export default function createClassX(styleModule: StyleModule) {
-  return (...args: ClassValue[]): string => {
-    const processedArgs = args.map(arg => {
-      if (typeof arg === 'string') {
-        return styleModule[arg] || arg;
+  const processArg = (arg: ClassValue): ClassValue => {
+    if (typeof arg === 'string') {
+      return styleModule[arg] || arg;
+    }
+    if (typeof arg === 'object' && arg !== null) {
+      if (Array.isArray(arg)) {
+        return arg.map(processArg);
       }
-      if (typeof arg === 'object' && !Array.isArray(arg)) {
-        const processedObj: { [key: string]: boolean | undefined | null } = {};
-        for (const key in arg) {
-          const processedKey = styleModule[key] || key;
-          processedObj[processedKey] = arg[key];
-        }
-        return processedObj;
+      const processed: { [key: string]: boolean | undefined | null } = {};
+      for (const key in arg) {
+        const processedKey = styleModule[key] || key;
+        processed[processedKey] = arg[key];
       }
-      return arg;
-    });
+      return processed;
+    }
+    return arg;
+  };
 
+  return (...args: ClassValue[]): string => {
+    const processedArgs = args.map(processArg);
     return classX(...processedArgs);
   };
 }
