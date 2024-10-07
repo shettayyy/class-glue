@@ -60,6 +60,23 @@ We're excited that you're interested in contributing to Class-X! This document o
 3. Make sure all tests pass and there are no linting errors.
 4. Your PR will be reviewed by the maintainer. Be open to feedback and be prepared to make changes if requested.
 
+### Pull Request Templates
+
+To streamline the PR process, we provide several pull request templates:
+
+- **Default Template**: This is automatically loaded when you create a new PR. It's suitable for most contributions and will guide you through providing necessary information.
+
+- **Specific Templates**: For more focused contributions, you can use one of our specific templates by adding a query parameter to the PR creation URL:
+  - For bug fixes: Add `?template=bug_fix.md`
+  - For new features: Add `?template=feature_addition.md`
+  - For enhancements: Add `?template=enhancement.md`
+
+For example, to use the bug fix template, your PR creation URL would look like:
+
+> <https://github.com/shettayyy/class-x/compare/main...your-branch-name?template=bug_fix.md>
+
+Choose the template that best fits your contribution type. If you're unsure, use the default template, and we'll guide you from there.
+
 ## Coding Standards
 
 - Follow the existing code style in the project.
