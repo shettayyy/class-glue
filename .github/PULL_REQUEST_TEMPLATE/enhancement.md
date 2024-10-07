@@ -19,7 +19,7 @@
 ## Testing
 
 - [ ] I have updated existing tests to accommodate the enhancement
-- [ ] I have added new tests if necessary
+- [ ] I have added/updated new tests
 - [ ] All tests pass
 
 ## Checklist
