@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Class-X Documentation
+    url: https://github.com/shettayyy/class-x#readme
+    about: Check out the Class-X documentation for answers to common questions
+  - name: 🗣 Ask a Question, Discuss
+    url: https://github.com/shettayyy/class-x/discussions
+    about: How does Class-X work 🤔? I made this! I have an idea...
+  - name: 🤗 Support the Project
+    url: https://github.com/sponsors/shettayyy
+    about: Support the Class-X project financially.
