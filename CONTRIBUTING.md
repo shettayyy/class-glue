@@ -69,7 +69,6 @@ To streamline the PR process, we provide several pull request templates:
 - **Specific Templates**: For more focused contributions, you can use one of our specific templates by adding a query parameter to the PR creation URL:
   - For bug fixes: Add `?template=bug_fix.md`
   - For new features: Add `?template=feature_addition.md`
-  - For enhancements: Add `?template=enhancement.md`
 
 For example, to use the bug fix template, your PR creation URL would look like:
 

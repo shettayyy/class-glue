@@ -1,0 +1,61 @@
+name: "🚀 Feature Request"
+description: "I have a specific suggestion for Class-X!"
+labels: ["enhancement", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to suggest a new feature! Please fill out this form as completely as possible.
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: We appreciate your initiative! Check this if you would like to implement this feature yourself. We're happy to guide you through the process.
+      options:
+        - label: I would like to work on implementing this feature
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: A concise description of the problem or use case for this feature.
+      placeholder: I have an issue when trying to [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context, code examples, or mock-ups about the feature request here.
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation, Documentation, and Adoption Strategy
+      description: If you can, explain how this feature could be implemented, how users will be able to use it, and how it might be documented. Mock-ups or example code are welcome!
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this feature request, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
