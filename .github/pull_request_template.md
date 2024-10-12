@@ -4,7 +4,6 @@
 >
 > - For bug fixes, use: `?template=bug_fix.md`
 > - For new features, use: `?template=feature_addition.md`
-> - For enhancements, use: `?template=enhancement.md`
 >
 > To use these, append the template parameter to your PR creation URL.
 > If you're not sure which to use, please continue with this generic template.

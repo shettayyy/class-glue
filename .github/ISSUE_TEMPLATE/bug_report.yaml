@@ -1,0 +1,89 @@
+name: "🐛 Bug Report"
+description: "If something isn't working as expected in Class-X 🤔"
+title: "[Bug]: "
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to file a bug report! Please fill out this form as completely as possible to help us address the issue.
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to work on fixing this issue
+
+  - type: dropdown
+    id: usage
+    attributes:
+      label: How are you using Class-X?
+      options:
+        - In a React project
+        - In a React Native project
+        - In a vanilla JavaScript project
+        - With a bundler (webpack, rollup, etc.)
+        - Other (please specify in Additional Context)
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Example
+      description: Please provide a minimal code example that reproduces the issue. If possible, share a link to a CodeSandbox or similar platform.
+      placeholder: |
+        ```javascript
+        import classX from 'class-x';
+
+        // Your code here
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Please provide details about your environment.
+        Tip: You can run `npx envinfo --system --binaries --browsers --npmPackages="{class-x,react,react-native}"` and paste the result here.
+      placeholder: |
+        - Class-X version: [e.g. 1.0.0]
+        - Node.js version: [e.g. 14.17.0]
+        - npm/Yarn version: [e.g. npm 7.13.0 / Yarn 1.22.10]
+        - Browser (if applicable): [e.g. Chrome 91]
+        - OS: [e.g. macOS 11.4, Windows 10]
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here. Screenshots or screen recordings can be very helpful.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
