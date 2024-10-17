@@ -5,34 +5,41 @@
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "unpkg": "dist/umd/index.min.js",
+  "jsdelivr": "dist/umd/index.min.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./keys-to-strings": {
-      "import": "./dist/esm/keys-to-strings.js",
-      "require": "./dist/keys-to-strings.js",
-      "types": "./dist/keys-to-strings.d.ts"
+      "default": "./dist/umd/index.js"
     },
     "./join-strings": {
+      "types": "./dist/join-strings.d.ts",
       "import": "./dist/esm/join-strings.js",
       "require": "./dist/join-strings.js",
-      "types": "./dist/join-strings.d.ts"
+      "default": "./dist/umd/join-strings.js"
+    },
+    "./keys-to-strings": {
+      "types": "./dist/keys-to-strings.d.ts",
+      "import": "./dist/esm/keys-to-strings.js",
+      "require": "./dist/keys-to-strings.js",
+      "default": "./dist/umd/keys-to-strings.js"
     },
     "./merge-module-strings": {
+      "types": "./dist/merge-module-strings.d.ts",
       "import": "./dist/esm/merge-module-strings.js",
       "require": "./dist/merge-module-strings.js",
-      "types": "./dist/merge-module-strings.d.ts"
+      "default": "./dist/umd/merge-module-strings.js"
     },
     "./merge-styles": {
+      "types": "./dist/merge-styles.d.ts",
       "import": "./dist/esm/merge-styles.js",
       "require": "./dist/merge-styles.js",
-      "types": "./dist/merge-styles.d.ts"
+      "default": "./dist/umd/merge-styles.js"
     }
   },
   "typesVersions": {
@@ -45,7 +52,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "tsc && tsc -p tsconfig.esm.json",
+    "build": "node build.js",
     "prebuild:watch": "npm run clean",
     "build:watch": "tsc -w & tsc -w -p tsconfig.esm.json",
     "example": "concurrently \"npm run build:watch\" \"cd example && npm install && npm run dev\"",
@@ -96,6 +103,8 @@
     "@size-limit/preset-small-lib": "^11.1.4",
     "@vitest/coverage-v8": "^2.0.5",
     "concurrently": "^8.2.2",
+    "esbuild": "^0.24.0",
+    "esbuild-node-externals": "^1.15.0",
     "husky": "^9.0.11",
     "rimraf": "^6.0.1",
     "size-limit": "^11.1.4",
