@@ -45,19 +45,19 @@ For direct browser usage via CDN:
 
 When using UMD builds in a browser, the main function and utilities are available under the following names:
 
-- `ClassGlue` (main export)
-- `ClassGlueJoinStrings`
-- `ClassGlueKeysToStrings`
-- `ClassGlueMergeModuleStrings`
-- `ClassGlueMergeStyles`
+- `classG` (main export)
+- `classGJoinStrings`
+- `classGKeysToStrings`
+- `classGMergeModuleStrings`
+- `classGMergeStyles`
 
 Example:
 
 ```javascript
-const classNames = ClassGlue('foo', { bar: true, baz: false });
+const classNames = classG('foo', { bar: true, baz: false });
 console.log(classNames); // "foo bar"
 
-const joinedClasses = ClassGlueJoinStrings('foo', 'bar', 'baz');
+const joinedClasses = classGJoinStrings('foo', 'bar', 'baz');
 console.log(joinedClasses); // "foo bar baz"
 ```
 
