@@ -15,17 +15,51 @@
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": {
-        "name": "angular"
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "chore",
+            "section": "Chores"
+          },
+          {
+            "type": "docs",
+            "section": "Documentation"
+          },
+          {
+            "type": "style",
+            "section": "Styles"
+          },
+          {
+            "type": "refactor",
+            "section": "Refactors"
+          },
+          {
+            "type": "perf",
+            "section": "Performance Improvements"
+          },
+          {
+            "type": "test",
+            "section": "Tests"
+          },
+          {
+            "type": "build",
+            "section": "Build System"
+          },
+          {
+            "type": "ci",
+            "section": "Continuous Integration"
+          }
+        ]
       },
-      "infile": "CHANGELOG.md",
-      "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n",
-      "writerOpts": {
-        "groupBy": "type",
-        "commitGroupsSort": ["feat", "fix", "perf", "refactor"],
-        "commitsSort": "header",
-        "noteGroupsSort": "title",
-        "commitPartial": "* {{subject}}\n  {{~!-- commit link --}}\n  {{~#if @root.linkReferences~}}\n    ([`{{shortHash}}`]({{commitUrlFormat}})), \n  {{~else~}}\n    {{~shortHash}}, \n  {{~/if~}}\n  {{~!-- commit date --}}\n  {{~#if @root.linkReferences~}}\n    {{~commitDate}}\n  {{~else~}}\n    {{~commitDate}}\n  {{~/if}}\n\n"
-      }
+      "infile": "CHANGELOG.md"
     }
   },
   "hooks": {
