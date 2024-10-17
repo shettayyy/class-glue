@@ -33,12 +33,6 @@ jobs:
           npm ci
           npm install @rollup/rollup-linux-x64-gnu || true
 
-      - name: Build
-        run: npm run build
-
-      - name: Run tests
-        run: npm test
-
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
