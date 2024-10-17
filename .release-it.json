@@ -67,7 +67,8 @@
     "before:init": [
       "npm run build",
       "npm run test",
-      "git update-index -q --refresh"
+      "git update-index -q --refresh",
+      "git status"
     ]
   }
 }
