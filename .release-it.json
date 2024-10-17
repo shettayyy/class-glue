@@ -62,8 +62,5 @@
       },
       "infile": "CHANGELOG.md"
     }
-  },
-  "hooks": {
-    "after:bump": "npm run build"
   }
 }
