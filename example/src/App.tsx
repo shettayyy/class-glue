@@ -79,10 +79,10 @@ function App() {
 
   return (
     <>
-      <h1 className={titleClasses}>Class X</h1>
+      <h1 className={titleClasses}>Class Glue</h1>
 
       <p className={subtitleClasses} style={cxStyles('dynamicColor')}>
-        Class X is a lightweight utility library for dynamically generating
+        Class Glue is a lightweight utility library for dynamically generating
         class
       </p>
 
