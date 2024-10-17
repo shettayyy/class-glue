@@ -66,9 +66,7 @@
   "hooks": {
     "before:init": [
       "npm run build",
-      "npm run test",
-      "git update-index -q --refresh",
-      "git status"
+      "npm run test"
     ]
   }
 }
