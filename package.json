@@ -79,7 +79,11 @@
     "styles",
     "utility"
   ],
-  "author": "Rahul Shetty",
+  "author": {
+    "name": "Rahul Shetty",
+    "email": "shettyrahul8june@gmail.com",
+    "url": "https://github.com/shettayyy"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/shettayyy/class-x/issues"
