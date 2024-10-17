@@ -14,4 +14,70 @@
 - 🛡️ Robust testing suite with unit tests and integration tests for reliable codebase.
 - 🌐 Cross-platform compatibility, ensuring consistent behavior across different environments.
 
+## Usage
+
+class-x provides a main function and multiple utility functions, each available in different formats:
+
+- CommonJS: `dist/[utility].js`
+- ES Module: `dist/esm/[utility].js`
+- UMD: `dist/umd/[utility].js` (minified version: `dist/umd/[utility].min.js`)
+
+Where [utility] can be:
+
+- index (main export)
+- join-strings
+- keys-to-strings
+- merge-module-strings
+- merge-styles
+
+For direct browser usage via CDN:
+
+```html
+<!-- Main library -->
+<script src="https://unpkg.com/class-x"></script>
+
+<!-- Individual utilities -->
+<script src="https://unpkg.com/class-x/dist/umd/join-strings.min.js"></script>
+<script src="https://unpkg.com/class-x/dist/umd/keys-to-strings.min.js"></script>
+<script src="https://unpkg.com/class-x/dist/umd/merge-module-strings.min.js"></script>
+<script src="https://unpkg.com/class-x/dist/umd/merge-styles.min.js"></script>
+```
+
+When using UMD builds in a browser, the main function and utilities are available under the following names:
+
+- `ClassX` (main export)
+- `ClassXJoinStrings`
+- `ClassXKeysToStrings`
+- `ClassXMergeModuleStrings`
+- `ClassXMergeStyles`
+
+Example:
+
+```javascript
+const classNames = ClassX('foo', { bar: true, baz: false });
+console.log(classNames); // "foo bar"
+
+const joinedClasses = ClassXJoinStrings('foo', 'bar', 'baz');
+console.log(joinedClasses); // "foo bar baz"
+```
+
+## Tree-Shaking
+
+class-x is designed to be fully tree-shakeable. When using a modern bundler like webpack, Rollup, or Parcel with ES modules, only the functions you actually use will be included in your final bundle. This means you can safely import from 'class-x' without worrying about bringing in unnecessary code:
+
+```javascript
+import { joinStrings, keysToStrings } from 'class-x';
+
+// Only the joinStrings and keysToStrings functions will be included in your bundle
+```
+
+For even more granular control, you can import specific functions directly:
+
+```javascript
+import joinStrings from 'class-x/join-strings';
+import keysToStrings from 'class-x/keys-to-strings';
+
+// This ensures only the specific functions are imported
+```
+
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/shettayyy)

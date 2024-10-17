@@ -1,0 +1,6 @@
+src
+tests
+.github
+.gitignore
+.release-it.json
+tsconfig.json
