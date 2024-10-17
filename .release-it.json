@@ -7,9 +7,6 @@
     "publish": true,
     "publishArgs": ["--access=public"]
   },
-  "github": {
-    "release": true
-  },
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": "angular",
