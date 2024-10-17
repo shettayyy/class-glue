@@ -5,12 +5,20 @@
   },
   "npm": {
     "publish": true,
-    "publishArgs": ["--access=public"]
+    "publishConfig": {
+      "access": "public"
+    }
+  },
+  "github": {
+    "release": true
   },
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": "angular",
       "infile": "CHANGELOG.md"
     }
+  },
+  "hooks": {
+    "after:bump": "npm run build"
   }
 }
