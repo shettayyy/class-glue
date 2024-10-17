@@ -1,5 +1,5 @@
 name: "🐛 Bug Report"
-description: "If something isn't working as expected in Class-X 🤔"
+description: "If something isn't working as expected in Class-Y 🤔"
 title: "[Bug]: "
 labels: ["bug", "needs triage"]
 body:
@@ -17,7 +17,7 @@ body:
   - type: dropdown
     id: usage
     attributes:
-      label: How are you using Class-X?
+      label: How are you using Class-Y?
       options:
         - In a React project
         - In a React Native project
@@ -34,7 +34,7 @@ body:
       description: Please provide a minimal code example that reproduces the issue. If possible, share a link to a CodeSandbox or similar platform.
       placeholder: |
         ```javascript
-        import classX from 'class-x';
+        import classY from 'class-y';
 
         // Your code here
         ```
@@ -63,9 +63,9 @@ body:
       label: Environment
       description: |
         Please provide details about your environment.
-        Tip: You can run `npx envinfo --system --binaries --browsers --npmPackages="{class-x,react,react-native}"` and paste the result here.
+        Tip: You can run `npx envinfo --system --binaries --browsers --npmPackages="{class-y,react,react-native}"` and paste the result here.
       placeholder: |
-        - Class-X version: [e.g. 1.0.0]
+        - Class-Y version: [e.g. 1.0.0]
         - Node.js version: [e.g. 14.17.0]
         - npm/Yarn version: [e.g. npm 7.13.0 / Yarn 1.22.10]
         - Browser (if applicable): [e.g. Chrome 91]

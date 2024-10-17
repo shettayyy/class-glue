@@ -8,11 +8,11 @@
  * avoiding unnecessary space concatenation for the first class name.
  *
  * @example
- * classX({ foo: true, bar: false, baz: true }); // 'foo baz'
- * classX({ a: 1, b: 0, c: null, d: undefined, e: 'yes' }); // 'a e'
+ * classY({ foo: true, bar: false, baz: true }); // 'foo baz'
+ * classY({ a: 1, b: 0, c: null, d: undefined, e: 'yes' }); // 'a e'
  *
  */
-export default function classX(obj: {
+export default function classY(obj: {
   [key: string]: boolean | undefined | null;
 }) {
   let k: string;

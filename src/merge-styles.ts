@@ -25,10 +25,10 @@ type StyleObj = { [key: string]: unknown };
  *   padding: { padding: 10 },
  * };
  *
- * classX(styles, 'title', { active: true }, ['padding']);
+ * classY(styles, 'title', { active: true }, ['padding']);
  * // Returns: { fontSize: 20, fontWeight: 'bold', color: 'blue', padding: 10 }
  */
-function classX(styles: StyleObj, ...args: ClassValue[]): StyleObj {
+function classY(styles: StyleObj, ...args: ClassValue[]): StyleObj {
   const result: StyleObj = {};
 
   function merge(arg: ClassValue) {
@@ -62,7 +62,7 @@ function classX(styles: StyleObj, ...args: ClassValue[]): StyleObj {
  * @returns {(...args: ClassValue[]) => StyleObj} A function that merges styles
  *
  * @example
- * import createClassX from './classX';
+ * import createClassY from './classY';
  *
  * const styles = {
  *   container: { flex: 1 },
@@ -71,7 +71,7 @@ function classX(styles: StyleObj, ...args: ClassValue[]): StyleObj {
  *   margin: { margin: 5 },
  * };
  *
- * const cx = createClassX(styles);
+ * const cx = createClassY(styles);
  *
  * function MyComponent({ isActive }) {
  *   return (
@@ -84,8 +84,8 @@ function classX(styles: StyleObj, ...args: ClassValue[]): StyleObj {
  * @note
  * The returned function handles null and undefined values gracefully, ignoring them in the final output.
  */
-export default function createClassX(styles: StyleObj) {
+export default function createClassY(styles: StyleObj) {
   return (...args: ClassValue[]): StyleObj => {
-    return classX(styles, ...args);
+    return classY(styles, ...args);
   };
 }

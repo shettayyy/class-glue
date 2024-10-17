@@ -1,4 +1,4 @@
-import classX from './index';
+import classY from './index';
 import type { ClassValue } from './types';
 
 type StyleModule = { [key: string]: string };
@@ -11,12 +11,12 @@ type StyleModule = { [key: string]: string };
  *
  * @example
  * import styles from './styles.module.css';
- * import createClassX from 'class-x/merge-module-strings';
+ * import createClassY from 'class-y/merge-module-strings';
  *
- * const cx = createClassX(styles);
+ * const cx = createClassY(styles);
  * cx('title', { titleActive: true }); // Returns: "styles.title styles.titleActive"
  */
-export default function createClassX(styleModule: StyleModule) {
+export default function createClassY(styleModule: StyleModule) {
   const processArg = (arg: ClassValue): ClassValue => {
     if (typeof arg === 'string') {
       return styleModule[arg] || arg;
@@ -37,6 +37,6 @@ export default function createClassX(styleModule: StyleModule) {
 
   return (...args: ClassValue[]): string => {
     const processedArgs = args.map(processArg);
-    return classX(...processedArgs);
+    return classY(...processedArgs);
   };
 }

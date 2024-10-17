@@ -1,41 +1,41 @@
-import classX from 'class-x';
+import classY from 'class-y';
 import { describe, expect, it } from 'vitest';
 
-describe('classX function', () => {
+describe('classY function', () => {
   it('combines string arguments', () => {
-    expect(classX('foo', 'bar')).toBe('foo bar');
-    expect(classX('foo', 'bar', 'baz')).toBe('foo bar baz');
+    expect(classY('foo', 'bar')).toBe('foo bar');
+    expect(classY('foo', 'bar', 'baz')).toBe('foo bar baz');
   });
 
   it('handles number arguments', () => {
-    expect(classX('foo', 1, 2)).toBe('foo 1 2');
+    expect(classY('foo', 1, 2)).toBe('foo 1 2');
   });
 
   it('filters out falsy values', () => {
-    expect(classX('foo', false, null, undefined, 0, '', 'bar')).toBe('foo bar');
+    expect(classY('foo', false, null, undefined, 0, '', 'bar')).toBe('foo bar');
   });
 
   it('handles object arguments', () => {
-    expect(classX({ foo: true, bar: false, baz: true })).toBe('foo baz');
-    expect(classX('base', { conditionalClass: true })).toBe(
+    expect(classY({ foo: true, bar: false, baz: true })).toBe('foo baz');
+    expect(classY('base', { conditionalClass: true })).toBe(
       'base conditionalClass',
     );
   });
 
   it('handles array arguments', () => {
-    expect(classX(['foo', 'bar'])).toBe('foo bar');
-    expect(classX('base', ['conditionalClass', { nested: true }])).toBe(
+    expect(classY(['foo', 'bar'])).toBe('foo bar');
+    expect(classY('base', ['conditionalClass', { nested: true }])).toBe(
       'base conditionalClass nested',
     );
   });
 
   it('handles nested arrays', () => {
-    expect(classX('foo', ['bar', ['baz', 'qux']])).toBe('foo bar baz qux');
+    expect(classY('foo', ['bar', ['baz', 'qux']])).toBe('foo bar baz qux');
   });
 
   it('handles complex nested structures', () => {
     expect(
-      classX('base', ['conditional', { nested: true }], { object: true }, [
+      classY('base', ['conditional', { nested: true }], { object: true }, [
         'array',
         ['deep', { complex: true }],
       ]),
@@ -43,6 +43,6 @@ describe('classX function', () => {
   });
 
   it('returns an empty string for all falsy inputs', () => {
-    expect(classX(false, null, undefined, '', 0)).toBe('');
+    expect(classY(false, null, undefined, '', 0)).toBe('');
   });
 });

@@ -1,19 +1,19 @@
-import createClassX from 'class-x/merge-styles';
+import createClassY from 'class-y/merge-styles';
 import { describe, expect, it } from 'vitest';
 
-describe('classX (string version)', () => {
+describe('classY (string version)', () => {
   it('should return an empty string for no arguments', () => {
-    const cx = createClassX({ foo: { color: 'red' } });
+    const cx = createClassY({ foo: { color: 'red' } });
     expect(cx()).toEqual({});
   });
 
   it('should handle a single string argument', () => {
-    const cx = createClassX({ foo: { color: 'red' } });
+    const cx = createClassY({ foo: { color: 'red' } });
     expect(cx('foo')).toEqual({ color: 'red' });
   });
 
   it('should handle multiple string arguments', () => {
-    const cx = createClassX({
+    const cx = createClassY({
       foo: { color: 'red' },
       bar: { background: 'blue' },
     });
@@ -21,7 +21,7 @@ describe('classX (string version)', () => {
   });
 
   it('should ignore empty strings', () => {
-    const cx = createClassX({
+    const cx = createClassY({
       foo: { color: 'red' },
       bar: { background: 'blue' },
     });
@@ -29,7 +29,7 @@ describe('classX (string version)', () => {
   });
 
   it('should handle a mix of valid and ignored values', () => {
-    const cx = createClassX({
+    const cx = createClassY({
       foo: { color: 'red' },
       bar: { background: 'blue' },
     });
@@ -40,7 +40,7 @@ describe('classX (string version)', () => {
   });
 
   it('should handle all mixed values', () => {
-    const cx = createClassX({
+    const cx = createClassY({
       foo: { color: 'red' },
       bar: { background: 'blue' },
       baz: { fontSize: 20 },

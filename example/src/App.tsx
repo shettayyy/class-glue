@@ -1,8 +1,8 @@
-import classX from 'class-x'; // Import the cx function from your library
-import classXString from 'class-x/join-strings'; // Import the classX function from your library
-import cxKeys2Strings from 'class-x/keys-to-strings'; // Import the classX function from your library
-import createClassX from 'class-x/merge-module-strings'; // Import the createClassX function from your library
-import createClassXStyles from 'class-x/merge-styles'; // Import the createClassX function from your library
+import classY from 'class-y'; // Import the cx function from your library
+import classYString from 'class-y/join-strings'; // Import the classY function from your library
+import cxKeys2Strings from 'class-y/keys-to-strings'; // Import the classY function from your library
+import createClassY from 'class-y/merge-module-strings'; // Import the createClassY function from your library
+import createClassYStyles from 'class-y/merge-styles'; // Import the createClassY function from your library
 import { useState } from 'react';
 import './App.css';
 import appStyles from './app.module.css';
@@ -11,8 +11,8 @@ import appStyles from './app.module.css';
 const getRandomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
-// createClassX accepts a CSS module object and returns a function that merges class names
-const cxModule = createClassX(appStyles);
+// createClassY accepts a CSS module object and returns a function that merges class names
+const cxModule = createClassY(appStyles);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,10 +24,10 @@ function App() {
     description: { letterSpacing: '2px' },
   };
 
-  const cxStyles = createClassXStyles(styles);
+  const cxStyles = createClassYStyles(styles);
 
-  // Example usage of classX function
-  const buttonClasses = classX(
+  // Example usage of classY function
+  const buttonClasses = classY(
     'button',
     { 'button-active': isActive },
     count % 2 === 0 ? 'even-count' : 'odd-count',
@@ -40,7 +40,7 @@ function App() {
     [`card-color-${count}`]: true,
   });
 
-  // Example usage of classX Module Strings function with CSS modules
+  // Example usage of classY Module Strings function with CSS modules
   const titleClasses = cxModule(
     'title',
     '',
@@ -60,13 +60,13 @@ function App() {
   );
   console.log(titleClasses);
 
-  // Example usage of classX Strings
-  const subtitleClasses = classXString(
+  // Example usage of classY Strings
+  const subtitleClasses = classYString(
     'subtitle',
     isActive && 'subtitleActive',
   );
 
-  const messageClasses = classX('message', [
+  const messageClasses = classY('message', [
     'additional-message',
     { 'message-highlighted': count > 3 },
   ]);

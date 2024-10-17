@@ -7,18 +7,18 @@
  * - Empty strings, null, or undefined: Ignored
  *
  * @example
- * import classX from 'class-x/string';
+ * import classY from 'class-y/string';
  *
- * classX('foo', 'bar'); // 'foo bar'
- * classX('foo', '', 'baz'); // 'foo baz'
- * classX('foo', undefined, 'bar', null, 'baz'); // 'foo bar baz'
+ * classY('foo', 'bar'); // 'foo bar'
+ * classY('foo', '', 'baz'); // 'foo baz'
+ * classY('foo', undefined, 'bar', null, 'baz'); // 'foo bar baz'
  *
  * @note
  * This is a lightweight version optimized for string-only inputs. For more complex
- * class name combinations involving objects or arrays, use the full `class-x`
+ * class name combinations involving objects or arrays, use the full `class-y`
  * package.
  */
-export default function classX(
+export default function classY(
   ...args: Array<string | undefined | null | boolean>
 ) {
   let result = '';
