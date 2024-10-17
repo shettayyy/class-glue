@@ -44,8 +44,8 @@ async function build() {
     // UMD builds
     const globalName =
       name === 'index'
-        ? 'ClassGlue'
-        : `ClassGlue${camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1)}`;
+        ? 'clgl'
+        : `clgl${camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1)}`;
 
     await esbuild.build({
       ...shared,
