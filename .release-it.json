@@ -24,7 +24,7 @@
         "commitGroupsSort": ["feat", "fix", "perf", "refactor"],
         "commitsSort": "header",
         "noteGroupsSort": "title",
-        "commitPartial": "* {{header}} ({{commitDate}}) {{#if @root.linkReferences}}\n  {{~#if scope}} **{{scope}}:**\n  {{~/if}}{{#if subject}}\n    {{~subject}}\n  {{~else}}\n    {{~header}}\n  {{~/if}}\n  {{~#if hash}} {{#if @root.linkReferences}}[`{{shortHash}}`]({{commitUrlFormat}}){{else}}{{shortHash}}{{/if}}{{/if}}\n{{else}}\n  {{~subject}}\n{{/if}}"
+        "commitPartial": "* {{subject}}\n  {{~!-- commit link --}}\n  {{~#if @root.linkReferences~}}\n    ([`{{shortHash}}`]({{commitUrlFormat}})), \n  {{~else~}}\n    {{~shortHash}}, \n  {{~/if~}}\n  {{~!-- commit date --}}\n  {{~#if @root.linkReferences~}}\n    {{~commitDate}}\n  {{~else~}}\n    {{~commitDate}}\n  {{~/if}}\n\n"
       }
     }
   },
