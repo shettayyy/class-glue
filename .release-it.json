@@ -62,5 +62,10 @@
       },
       "infile": "CHANGELOG.md"
     }
+  },
+  "hooks": {
+    "before:init": [
+      "git update-index -q --refresh"
+    ]
   }
 }
