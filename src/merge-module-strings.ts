@@ -1,4 +1,4 @@
-import classY from './index';
+import classGlue from './index';
 import type { ClassValue } from './types';
 
 type StyleModule = { [key: string]: string };
@@ -11,12 +11,12 @@ type StyleModule = { [key: string]: string };
  *
  * @example
  * import styles from './styles.module.css';
- * import createClassY from 'class-y/merge-module-strings';
+ * import createClassGlue from 'class-glue/merge-module-strings';
  *
- * const cx = createClassY(styles);
+ * const cx = createClassGlue(styles);
  * cx('title', { titleActive: true }); // Returns: "styles.title styles.titleActive"
  */
-export default function createClassY(styleModule: StyleModule) {
+export default function createClassGlue(styleModule: StyleModule) {
   const processArg = (arg: ClassValue): ClassValue => {
     if (typeof arg === 'string') {
       return styleModule[arg] || arg;
@@ -37,6 +37,6 @@ export default function createClassY(styleModule: StyleModule) {
 
   return (...args: ClassValue[]): string => {
     const processedArgs = args.map(processArg);
-    return classY(...processedArgs);
+    return classGlue(...processedArgs);
   };
 }

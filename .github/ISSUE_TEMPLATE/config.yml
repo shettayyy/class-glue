@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 📚 Class-Y Documentation
-    url: https://github.com/shettayyy/class-y#readme
-    about: Check out the Class-Y documentation for answers to common questions
+  - name: 📚 Class-Glue Documentation
+    url: https://github.com/shettayyy/class-glue#readme
+    about: Check out the Class-Glue documentation for answers to common questions
   - name: 🗣 Ask a Question, Discuss
-    url: https://github.com/shettayyy/class-y/discussions
-    about: How does Class-Y work 🤔? I made this! I have an idea...
+    url: https://github.com/shettayyy/class-glue/discussions
+    about: How does Class-Glue work 🤔? I made this! I have an idea...
   - name: 🤗 Support the Project
     url: https://github.com/sponsors/shettayyy
-    about: Support the Class-Y project financially.
+    about: Support the Class-Glue project financially.

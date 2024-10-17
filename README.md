@@ -1,6 +1,6 @@
-# class-y 💫
+# class-glue 💫
 
-> class-y is a lightweight utility library for dynamically generating class names in JavaScript applications. It provides a simple and intuitive way to conditionally apply class names based on variables or conditions, making it easier to manage styles and classNames in React, React Native, and other JavaScript projects. With class-y, you can efficiently construct classNames without repetitive ternary expressions or complex logic, improving code readability and maintainability.
+> class-glue is a lightweight utility library for dynamically generating class names in JavaScript applications. It provides a simple and intuitive way to conditionally apply class names based on variables or conditions, making it easier to manage styles and classNames in React, React Native, and other JavaScript projects. With class-glue, you can efficiently construct classNames without repetitive ternary expressions or complex logic, improving code readability and maintainability.
 
 ## Features ✨
 
@@ -16,7 +16,7 @@
 
 ## Usage
 
-class-y provides a main function and multiple utility functions, each available in different formats:
+class-glue provides a main function and multiple utility functions, each available in different formats:
 
 - CommonJS: `dist/[utility].js`
 - ES Module: `dist/esm/[utility].js`
@@ -34,39 +34,39 @@ For direct browser usage via CDN:
 
 ```html
 <!-- Main library -->
-<script src="https://unpkg.com/class-y"></script>
+<script src="https://unpkg.com/class-glue"></script>
 
 <!-- Individual utilities -->
-<script src="https://unpkg.com/class-y/dist/umd/join-strings.min.js"></script>
-<script src="https://unpkg.com/class-y/dist/umd/keys-to-strings.min.js"></script>
-<script src="https://unpkg.com/class-y/dist/umd/merge-module-strings.min.js"></script>
-<script src="https://unpkg.com/class-y/dist/umd/merge-styles.min.js"></script>
+<script src="https://unpkg.com/class-glue/dist/umd/join-strings.min.js"></script>
+<script src="https://unpkg.com/class-glue/dist/umd/keys-to-strings.min.js"></script>
+<script src="https://unpkg.com/class-glue/dist/umd/merge-module-strings.min.js"></script>
+<script src="https://unpkg.com/class-glue/dist/umd/merge-styles.min.js"></script>
 ```
 
 When using UMD builds in a browser, the main function and utilities are available under the following names:
 
-- `ClassY` (main export)
-- `ClassYJoinStrings`
-- `ClassYKeysToStrings`
-- `ClassYMergeModuleStrings`
-- `ClassYMergeStyles`
+- `ClassGlue` (main export)
+- `ClassGlueJoinStrings`
+- `ClassGlueKeysToStrings`
+- `ClassGlueMergeModuleStrings`
+- `ClassGlueMergeStyles`
 
 Example:
 
 ```javascript
-const classNames = ClassY('foo', { bar: true, baz: false });
+const classNames = ClassGlue('foo', { bar: true, baz: false });
 console.log(classNames); // "foo bar"
 
-const joinedClasses = ClassYJoinStrings('foo', 'bar', 'baz');
+const joinedClasses = ClassGlueJoinStrings('foo', 'bar', 'baz');
 console.log(joinedClasses); // "foo bar baz"
 ```
 
 ## Tree-Shaking
 
-class-y is designed to be fully tree-shakeable. When using a modern bundler like webpack, Rollup, or Parcel with ES modules, only the functions you actually use will be included in your final bundle. This means you can safely import from 'class-y' without worrying about bringing in unnecessary code:
+class-glue is designed to be fully tree-shakeable. When using a modern bundler like webpack, Rollup, or Parcel with ES modules, only the functions you actually use will be included in your final bundle. This means you can safely import from 'class-glue' without worrying about bringing in unnecessary code:
 
 ```javascript
-import { joinStrings, keysToStrings } from 'class-y';
+import { joinStrings, keysToStrings } from 'class-glue';
 
 // Only the joinStrings and keysToStrings functions will be included in your bundle
 ```
@@ -74,8 +74,8 @@ import { joinStrings, keysToStrings } from 'class-y';
 For even more granular control, you can import specific functions directly:
 
 ```javascript
-import joinStrings from 'class-y/join-strings';
-import keysToStrings from 'class-y/keys-to-strings';
+import joinStrings from 'class-glue/join-strings';
+import keysToStrings from 'class-glue/keys-to-strings';
 
 // This ensures only the specific functions are imported
 ```

@@ -1,6 +1,6 @@
-# Contributing to Class-Y
+# Contributing to Class-Glue
 
-We're excited that you're interested in contributing to Class-Y! This document outlines the process for contributing to this project. Whether you're fixing bugs, improving documentation, or adding new features, your contributions are welcome.
+We're excited that you're interested in contributing to Class-Glue! This document outlines the process for contributing to this project. Whether you're fixing bugs, improving documentation, or adding new features, your contributions are welcome.
 
 ## Getting Started
 
@@ -8,8 +8,8 @@ We're excited that you're interested in contributing to Class-Y! This document o
 2. Clone your fork locally:
 
    ```bash
-   git clone https://github.com/your-username/class-y.git
-   cd class-y
+   git clone https://github.com/your-username/class-glue.git
+   cd class-glue
    ```
 
 3. Install dependencies:
@@ -72,7 +72,7 @@ To streamline the PR process, we provide several pull request templates:
 
 For example, to use the bug fix template, your PR creation URL would look like:
 
-> <https://github.com/shettayyy/class-y/compare/main...your-branch-name?template=bug_fix.md>
+> <https://github.com/shettayyy/class-glue/compare/main...your-branch-name?template=bug_fix.md>
 
 Choose the template that best fits your contribution type. If you're unsure, use the default template, and we'll guide you from there.
 
@@ -99,4 +99,4 @@ Choose the template that best fits your contribution type. If you're unsure, use
 
 By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-Thank you for contributing to Class-Y!
+Thank you for contributing to Class-Glue!

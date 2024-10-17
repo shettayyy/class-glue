@@ -1,8 +1,8 @@
-import classY from 'class-y'; // Import the cx function from your library
-import classYString from 'class-y/join-strings'; // Import the classY function from your library
-import cxKeys2Strings from 'class-y/keys-to-strings'; // Import the classY function from your library
-import createClassY from 'class-y/merge-module-strings'; // Import the createClassY function from your library
-import createClassYStyles from 'class-y/merge-styles'; // Import the createClassY function from your library
+import classGlue from 'class-glue'; // Import the cx function from your library
+import classGlueString from 'class-glue/join-strings'; // Import the classGlue function from your library
+import cxKeys2Strings from 'class-glue/keys-to-strings'; // Import the classGlue function from your library
+import createClassGlue from 'class-glue/merge-module-strings'; // Import the createClassGlue function from your library
+import createClassGlueStyles from 'class-glue/merge-styles'; // Import the createClassGlue function from your library
 import { useState } from 'react';
 import './App.css';
 import appStyles from './app.module.css';
@@ -11,8 +11,8 @@ import appStyles from './app.module.css';
 const getRandomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
-// createClassY accepts a CSS module object and returns a function that merges class names
-const cxModule = createClassY(appStyles);
+// createClassGlue accepts a CSS module object and returns a function that merges class names
+const cxModule = createClassGlue(appStyles);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,10 +24,10 @@ function App() {
     description: { letterSpacing: '2px' },
   };
 
-  const cxStyles = createClassYStyles(styles);
+  const cxStyles = createClassGlueStyles(styles);
 
-  // Example usage of classY function
-  const buttonClasses = classY(
+  // Example usage of classGlue function
+  const buttonClasses = classGlue(
     'button',
     { 'button-active': isActive },
     count % 2 === 0 ? 'even-count' : 'odd-count',
@@ -40,7 +40,7 @@ function App() {
     [`card-color-${count}`]: true,
   });
 
-  // Example usage of classY Module Strings function with CSS modules
+  // Example usage of classGlue Module Strings function with CSS modules
   const titleClasses = cxModule(
     'title',
     '',
@@ -60,13 +60,13 @@ function App() {
   );
   console.log(titleClasses);
 
-  // Example usage of classY Strings
-  const subtitleClasses = classYString(
+  // Example usage of classGlue Strings
+  const subtitleClasses = classGlueString(
     'subtitle',
     isActive && 'subtitleActive',
   );
 
-  const messageClasses = classY('message', [
+  const messageClasses = classGlue('message', [
     'additional-message',
     { 'message-highlighted': count > 3 },
   ]);

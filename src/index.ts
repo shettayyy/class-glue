@@ -12,18 +12,18 @@ import type { ClassValue } from './types';
  * - Falsy values (false, null, undefined, 0, ""): Ignored
  *
  * @example
- * import classY from 'class-y';
+ * import classGlue from 'class-glue';
  *
- * classY('foo', 'bar'); // 'foo bar'
- * classY('foo', { bar: true, baz: false }); // 'foo bar'
- * classY('foo', ['bar', { baz: true }]); // 'foo bar baz'
+ * classGlue('foo', 'bar'); // 'foo bar'
+ * classGlue('foo', { bar: true, baz: false }); // 'foo bar'
+ * classGlue('foo', ['bar', { baz: true }]); // 'foo bar baz'
  *
  * @note
  * For optimal performance, pass only plain objects or objects created with Object.create(null)
  * when using object syntax. The function does not check for inherited properties.
  *
  */
-export default function classY(...args: ClassValue[]): string {
+export default function classGlue(...args: ClassValue[]): string {
   let result = '';
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
@@ -32,7 +32,7 @@ export default function classY(...args: ClassValue[]): string {
       if (typeof arg === 'string' || typeof arg === 'number') {
         result += result ? ` ${arg}` : `${arg}`;
       } else if (Array.isArray(arg)) {
-        const inner = classY.apply(null, arg);
+        const inner = classGlue.apply(null, arg);
 
         if (inner) {
           result += result ? ` ${inner}` : inner;

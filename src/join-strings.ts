@@ -7,18 +7,18 @@
  * - Empty strings, null, or undefined: Ignored
  *
  * @example
- * import classY from 'class-y/string';
+ * import classGlue from 'class-glue/string';
  *
- * classY('foo', 'bar'); // 'foo bar'
- * classY('foo', '', 'baz'); // 'foo baz'
- * classY('foo', undefined, 'bar', null, 'baz'); // 'foo bar baz'
+ * classGlue('foo', 'bar'); // 'foo bar'
+ * classGlue('foo', '', 'baz'); // 'foo baz'
+ * classGlue('foo', undefined, 'bar', null, 'baz'); // 'foo bar baz'
  *
  * @note
  * This is a lightweight version optimized for string-only inputs. For more complex
- * class name combinations involving objects or arrays, use the full `class-y`
+ * class name combinations involving objects or arrays, use the full `class-glue`
  * package.
  */
-export default function classY(
+export default function classGlue(
   ...args: Array<string | undefined | null | boolean>
 ) {
   let result = '';

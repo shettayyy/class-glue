@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "class-y": "file:..",
+    "class-glue": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

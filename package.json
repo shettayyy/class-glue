@@ -1,5 +1,5 @@
 {
-  "name": "class-y",
+  "name": "class-glue",
   "version": "1.0.0",
   "description": "Dynamic class name generation made easy with a lightweight utility to simplify styling in React, React Native, and more. No fuss, just class names! 💅✨",
   "main": "dist/index.js",
@@ -71,7 +71,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shettayyy/class-y.git"
+    "url": "git+https://github.com/shettayyy/class-glue.git"
   },
   "keywords": [
     "classname",
@@ -94,9 +94,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shettayyy/class-y/issues"
+    "url": "https://github.com/shettayyy/class-glue/issues"
   },
-  "homepage": "https://github.com/shettayyy/class-y#readme",
+  "homepage": "https://github.com/shettayyy/class-glue#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@commitlint/cli": "^19.3.0",
