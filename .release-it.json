@@ -17,7 +17,15 @@
       "preset": {
         "name": "angular"
       },
-      "infile": "CHANGELOG.md"
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n",
+      "writerOpts": {
+        "groupBy": "type",
+        "commitGroupsSort": ["feat", "fix", "perf", "refactor"],
+        "commitsSort": "header",
+        "noteGroupsSort": "title",
+        "commitPartial": "* {{header}} ({{commitDate}}) {{#if @root.linkReferences}}\n  {{~#if scope}} **{{scope}}:**\n  {{~/if}}{{#if subject}}\n    {{~subject}}\n  {{~else}}\n    {{~header}}\n  {{~/if}}\n  {{~#if hash}} {{#if @root.linkReferences}}[`{{shortHash}}`]({{commitUrlFormat}}){{else}}{{shortHash}}{{/if}}{{/if}}\n{{else}}\n  {{~subject}}\n{{/if}}"
+      }
     }
   },
   "hooks": {
