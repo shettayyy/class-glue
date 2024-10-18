@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   release:
-    if: startsWith(github.event.head_commit.message, 'Merge pull request') && contains(github.event.head_commit.message, 'Release v')
+    if: "contains(github.event.head_commit.message, 'chore: prepare release v')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -39,9 +39,9 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
 
-      - name: Extract version from branch name
+      - name: Extract version from commit message
         id: get_version
-        run: echo "VERSION=$(echo ${{ github.event.head_commit.message }} | sed -n 's/.*Release v\(.*\)"/\1/p')" >> $GITHUB_OUTPUT
+        run: echo "VERSION=$(echo '${{ github.event.head_commit.message }}' | sed -n 's/.*prepare release v\(.*\)/\1/p')" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         env:

@@ -1,20 +1,12 @@
-name: Create Release Branch
+name: Create Release Branch and PR
 
 on:
   push:
     branches:
       - main
 
-env:
-  HUSKY: 0
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write  
-  
 jobs:
-  create-release-branch:
+  create-release-branch-and-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,16 +20,14 @@ jobs:
           node-version: 'lts/*'
 
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install @rollup/rollup-linux-x64-gnu || true
+        run: npm ci
 
       - name: Configure Git
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-      - name: Create release branch
+      - name: Create release branch and PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -58,7 +48,10 @@ jobs:
           
           # Create and push the release branch
           git checkout -b release-v${new_version}
+          git add .
+          git commit -m "chore: prepare release v${new_version}"
           git push -u origin release-v${new_version}
           
           # Create a pull request
-          gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version}
+          pr_url=$(gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version})
+          echo "Created PR: $pr_url"
