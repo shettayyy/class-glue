@@ -52,10 +52,41 @@ jobs:
         run: |
           npm run release -- --ci --no-git.requireUpstream --no-git.push --no-npm.publish --no-github.release
 
+      - name: Generate changelog
+        id: changelog
+        run: |
+          changelog=$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"- %s (%h)" --no-merges)
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$changelog" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Push changes and create PR
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git push -u origin release-v${{ steps.next-version.outputs.version }}
-          pr_url=$(gh pr create --title "Release v${{ steps.next-version.outputs.version }}" --body "This PR prepares the release for version ${{ steps.next-version.outputs.version }}. Please review and merge to trigger the release process." --base main --head release-v${{ steps.next-version.outputs.version }})
+          pr_body="## Release v${{ steps.next-version.outputs.version }}
+
+          This PR prepares the release for version ${{ steps.next-version.outputs.version }}.
+
+          ### 🚀 Changes
+
+          ${{ steps.changelog.outputs.changelog }}
+
+          ### 📝 Notes for Reviewers
+
+          - Please review the changes carefully, especially any breaking changes.
+          - Ensure all tests are passing and the build is successful.
+          - Check if the documentation has been updated appropriately.
+
+          ### 📋 Checklist
+
+          - [ ] Version number in package.json is correct
+          - [ ] CHANGELOG.md has been updated
+          - [ ] All tests are passing
+          - [ ] Documentation has been updated (if necessary)
+
+          Once this PR is approved and merged, it will trigger the release process."
+          
+          pr_url=$(gh pr create --title "chore: release v${{ steps.next-version.outputs.version }}" --body "$pr_body" --base main --head release-v${{ steps.next-version.outputs.version }})
           echo "Created PR: $pr_url"
