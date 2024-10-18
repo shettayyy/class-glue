@@ -2,8 +2,7 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
-    "requireBranch": "main",
-    "addUntrackedFiles": true
+    "requireBranch": "main"
   },
   "npm": {
     "publish": true,
