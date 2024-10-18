@@ -41,6 +41,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo "Current branch:"
+          git branch --show-current
+          
+          echo "Git status before release-it:"
+          git status
+
           # Determine the release type based on commit messages
           if git log --format=%B -n 1 ${{ github.event.before }}..${{ github.event.after }} | grep -qE '^BREAKING CHANGE:'; then
             release_type="major"
@@ -50,11 +56,26 @@ jobs:
             release_type="patch"
           fi
           
+          echo "Release type: ${release_type}"
+          
           # Run release-it to update version and changelog
           npm run release -- ${release_type} --ci --preRelease --no-git.push --no-npm.publish --no-github.release
           
+          echo "Git status after release-it:"
+          git status
+          
+          echo "Git diff after release-it:"
+          git diff
+          
           # Get the new version
           new_version=$(node -p "require('./package.json').version")
+          echo "New version: ${new_version}"
+          
+          # Check for changes
+          if git diff --exit-code; then
+            echo "No changes detected by git diff. Skipping PR creation."
+            exit 0
+          fi
           
           # Create and push the release branch
           git checkout -b release-v${new_version}
@@ -65,26 +86,3 @@ jobs:
           # Create a pull request
           pr_url=$(gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version})
           echo "Created PR: $pr_url"
-        continue-on-error: true
-
-      - name: Check for changes
-        id: git-check
-        run: |
-          git status
-          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
-
-      - name: Commit changes if any
-        if: steps.git-check.outputs.changes == 'true'
-        run: |
-          git add .
-          git commit -m "chore: prepare release"
-          new_version=$(node -p "require('./package.json').version")
-          git push -u origin release-v${new_version}
-          pr_url=$(gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version})
-          echo "Created PR: $pr_url"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Print error message if no changes
-        if: steps.git-check.outputs.changes != 'true'
-        run: echo "No changes to commit. Skipping PR creation."
