@@ -57,6 +57,7 @@
     "build:watch": "tsc -w & tsc -w -p tsconfig.esm.json",
     "example": "concurrently \"npm run build:watch\" \"cd example && npm install && npm run dev\"",
     "lint": "biome check .",
+    "lint:ci": "biome ci .",
     "lint:fix": "biome check --apply .",
     "format": "biome format .",
     "format:fix": "biome format --write .",
