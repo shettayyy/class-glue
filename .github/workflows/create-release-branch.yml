@@ -65,3 +65,26 @@ jobs:
           # Create a pull request
           pr_url=$(gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version})
           echo "Created PR: $pr_url"
+        continue-on-error: true
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git status
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit changes if any
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git add .
+          git commit -m "chore: prepare release"
+          new_version=$(node -p "require('./package.json').version")
+          git push -u origin release-v${new_version}
+          pr_url=$(gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version})
+          echo "Created PR: $pr_url"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print error message if no changes
+        if: steps.git-check.outputs.changes != 'true'
+        run: echo "No changes to commit. Skipping PR creation."
