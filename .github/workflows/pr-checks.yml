@@ -25,10 +25,7 @@ jobs:
           ${{ runner.OS }}-node-
 
     - name: Install dependencies
-      run: |
-        npm ci
-        npm install --no-save @rollup/rollup-linux-x64-gnu || true
-        npm install --no-save @biomejs/biome
+      run: npm install
 
     - name: Lint
       run: npm run lint
