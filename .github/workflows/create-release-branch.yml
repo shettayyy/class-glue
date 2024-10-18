@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  HUSKY: 0
+  
 jobs:
   create-release-branch:
     runs-on: ubuntu-latest
