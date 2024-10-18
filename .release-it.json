@@ -2,10 +2,8 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
-    "requireBranch": "main",
     "requireCleanWorkingDir": false,
-    "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
-    "requireCommits": true
+    "push": true
   },
   "npm": {
     "publish": true,
@@ -15,6 +13,7 @@
   },
   "github": {
     "release": true,
+    "releaseName": "Release ${version}",
     "tokenRef": "GITHUB_TOKEN"
   },
   "plugins": {
@@ -66,13 +65,5 @@
       },
       "infile": "CHANGELOG.md"
     }
-  },
-  "hooks": {
-    "before:init": [
-      "npm run build",
-      "npm run test",
-      "git status"
-    ],
-    "after:bump": "npm install"
   }
 }

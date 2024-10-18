@@ -10,7 +10,6 @@ env:
 
 permissions:
   contents: write
-  issues: write
   pull-requests: write
 
 jobs:
@@ -41,13 +40,35 @@ jobs:
           npm ci
           npm install @rollup/rollup-linux-x64-gnu || true
 
+      - name: Build
+        run: npm run build
+
       - name: Configure Git User
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
+
+      - name: Create Release Branch
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          BRANCH="release/v$VERSION"
+          git checkout -b $BRANCH
+          git push -u origin $BRANCH
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx release-it --ci --verbose
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: release ${{ steps.package-version.outputs.version }}"
+          title: "Release ${{ steps.package-version.outputs.version }}"
+          body: |
+            This PR was automatically created by the GitHub Action workflow **${{ github.workflow }}**.
+            The release version is ${{ steps.package-version.outputs.version }}.
+          branch: ${{ steps.create-branch.outputs.branch }}
+          base: main
