@@ -27,39 +27,26 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install @rollup/rollup-linux-x64-gnu || true
+        run: npm ci
 
       - name: Build
         run: npm run build
 
-      - name: Configure Git User
+      - name: Configure Git
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
 
-      - name: Create Release Branch
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          BRANCH="release/v$VERSION"
-          git checkout -b $BRANCH
-          git push -u origin $BRANCH
+      - name: Get version
+        id: package-version
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
 
-      - name: Release
+      - name: Run release-it
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx release-it --ci --verbose
+        run: npx release-it --ci
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -70,5 +57,5 @@ jobs:
           body: |
             This PR was automatically created by the GitHub Action workflow **${{ github.workflow }}**.
             The release version is ${{ steps.package-version.outputs.version }}.
-          branch: ${{ steps.create-branch.outputs.branch }}
+          branch: "release/v${{ steps.package-version.outputs.version }}"
           base: main
