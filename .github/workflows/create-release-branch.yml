@@ -56,7 +56,7 @@ jobs:
 
       - name: Push changes and create PR
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git push -u origin release-v${{ steps.next-version.outputs.version }}
           pr_url=$(gh pr create --title "Release v${{ steps.next-version.outputs.version }}" --body "This PR prepares the release for version ${{ steps.next-version.outputs.version }}. Please review and merge to trigger the release process." --base main --head release-v${{ steps.next-version.outputs.version }})
