@@ -149,5 +149,8 @@
       "limit": "455 B"
     }
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.24.0"
+  }
 }

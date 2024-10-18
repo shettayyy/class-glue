@@ -28,7 +28,6 @@ jobs:
       run: |
         npm ci
         npm install --no-save @biomejs/cli-linux-x64 || true
-        npm install --no-save @rollup/rollup-linux-x64-gnu || true
 
     - name: Lint
       run: npm run lint:ci
