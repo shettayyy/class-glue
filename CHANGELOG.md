@@ -1,4 +1,15 @@
+# CHANGELOG
 
+All notable changes to this project will be documented in this file.
+
+
+
+## [1.13.1](https://github.com/shettayyy/class-glue/compare/v1.13.0...v1.13.1) (2024-10-18)
+
+
+### Refactors
+
+* update release actions ([#21](https://github.com/shettayyy/class-glue/issues/21)) ([00cf043](https://github.com/shettayyy/class-glue/commit/00cf043c99f52347890262f7410acddef42c815d))
 
 ## 1.13.0 (2024-10-18)
 
