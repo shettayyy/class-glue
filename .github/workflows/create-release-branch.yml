@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm install @rollup/rollup-linux-x64-gnu || true
+          npm install --no-save @rollup/rollup-linux-x64-gnu || true
 
       - name: Configure Git
         run: |
@@ -52,7 +52,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm run release -- --ci --preRelease --no-git.requireUpstream --no-git.push --no-npm.publish --no-github.release
+          npm run release -- --ci --no-git.requireUpstream --no-git.push --no-npm.publish --no-github.release
 
       - name: Push changes and create PR
         env:
