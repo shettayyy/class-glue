@@ -27,6 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm ci
+        npm install --no-save @rollup/rollup-linux-x64-gnu || true
         npm install --no-save @biomejs/cli-linux-x64 || true
 
     - name: Lint
