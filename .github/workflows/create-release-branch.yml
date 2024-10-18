@@ -1,0 +1,54 @@
+name: Create Release Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure Git
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: Create release branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Determine the release type based on commit messages
+          if git log --format=%B -n 1 ${{ github.event.before }}..${{ github.event.after }} | grep -qE '^BREAKING CHANGE:'; then
+            release_type="major"
+          elif git log --format=%B -n 1 ${{ github.event.before }}..${{ github.event.after }} | grep -qE '^feat:'; then
+            release_type="minor"
+          else
+            release_type="patch"
+          fi
+          
+          # Run release-it to update version and changelog
+          npm run release -- ${release_type} --ci --preRelease --no-git.push --no-npm.publish --no-github.release
+          
+          # Get the new version
+          new_version=$(node -p "require('./package.json').version")
+          
+          # Create and push the release branch
+          git checkout -b release-v${new_version}
+          git push -u origin release-v${new_version}
+          
+          # Create a pull request
+          gh pr create --title "Release v${new_version}" --body "This PR prepares the release for version ${new_version}. Please review and merge to trigger the release process." --base main --head release-v${new_version}

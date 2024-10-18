@@ -10,10 +10,12 @@ env:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 jobs:
   release:
+    if: startsWith(github.event.head_commit.message, 'Merge pull request') && contains(github.event.head_commit.message, 'Release v')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,34 +30,28 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Configure Git
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          npm ci
+          npm install @rollup/rollup-linux-x64-gnu || true
 
-      - name: Get version
-        id: package-version
-        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+      - name: Configure Git User
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
 
-      - name: Run release-it
+      - name: Extract version from branch name
+        id: get_version
+        run: echo "VERSION=$(echo ${{ github.event.head_commit.message }} | sed -n 's/.*Release v\(.*\)"/\1/p')" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx release-it --ci
+        run: |
+          gh release create v${{ steps.get_version.outputs.VERSION }} \
+            --title "Release v${{ steps.get_version.outputs.VERSION }}" \
+            --notes-file CHANGELOG.md
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: release ${{ steps.package-version.outputs.version }}"
-          title: "Release ${{ steps.package-version.outputs.version }}"
-          body: |
-            This PR was automatically created by the GitHub Action workflow **${{ github.workflow }}**.
-            The release version is ${{ steps.package-version.outputs.version }}.
-          branch: "release/v${{ steps.package-version.outputs.version }}"
-          base: main
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public

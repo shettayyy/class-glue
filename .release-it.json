@@ -3,67 +3,39 @@
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
     "requireCleanWorkingDir": false,
-    "push": true
+    "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}"
   },
   "npm": {
-    "publish": true,
-    "publishConfig": {
-      "access": "public"
-    }
+    "publish": false
   },
   "github": {
-    "release": true,
-    "releaseName": "Release ${version}",
-    "tokenRef": "GITHUB_TOKEN"
+    "release": false
   },
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": {
         "name": "conventionalcommits",
         "types": [
-          {
-            "type": "feat",
-            "section": "Features"
-          },
-          {
-            "type": "fix",
-            "section": "Bug Fixes"
-          },
-          {
-            "type": "chore",
-            "section": "Chores"
-          },
-          {
-            "type": "docs",
-            "section": "Documentation"
-          },
-          {
-            "type": "style",
-            "section": "Styles"
-          },
-          {
-            "type": "refactor",
-            "section": "Refactors"
-          },
-          {
-            "type": "perf",
-            "section": "Performance Improvements"
-          },
-          {
-            "type": "test",
-            "section": "Tests"
-          },
-          {
-            "type": "build",
-            "section": "Build System"
-          },
-          {
-            "type": "ci",
-            "section": "Continuous Integration"
-          }
+          {"type": "feat", "section": "Features"},
+          {"type": "fix", "section": "Bug Fixes"},
+          {"type": "chore", "section": "Chores"},
+          {"type": "docs", "section": "Documentation"},
+          {"type": "style", "section": "Styles"},
+          {"type": "refactor", "section": "Refactors"},
+          {"type": "perf", "section": "Performance Improvements"},
+          {"type": "test", "section": "Tests"},
+          {"type": "build", "section": "Build System"},
+          {"type": "ci", "section": "Continuous Integration"}
         ]
       },
       "infile": "CHANGELOG.md"
     }
+  },
+  "hooks": {
+    "before:init": [
+      "npm run build",
+      "npm run test"
+    ],
+    "after:bump": "npm install"
   }
 }
