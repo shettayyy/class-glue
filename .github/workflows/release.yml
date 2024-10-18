@@ -1,7 +1,8 @@
 name: Release
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - main
 
@@ -15,7 +16,7 @@ permissions:
 
 jobs:
   release:
-    if: "contains(github.event.head_commit.message, 'chore: prepare release v')"
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release-v')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -37,19 +38,19 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
 
-      - name: Extract version from commit message
+      - name: Extract version from branch name
         id: get_version
-        run: echo "VERSION=$(echo '${{ github.event.head_commit.message }}' | sed -n 's/.*prepare release v\(.*\)/\1/p')" >> $GITHUB_OUTPUT
-
-      - name: Create GitHub Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release create v${{ steps.get_version.outputs.VERSION }} \
-            --title "Release v${{ steps.get_version.outputs.VERSION }}" \
-            --notes-file CHANGELOG.md
+        run: echo "VERSION=$(echo ${{ github.event.pull_request.head.ref }} | sed 's/release-v//')" >> $GITHUB_OUTPUT
 
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          gh release create v${{ steps.get_version.outputs.VERSION }} \
+            --title "Release v${{ steps.get_version.outputs.VERSION }}" \
+            --notes-file CHANGELOG.md
