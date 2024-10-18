@@ -2,8 +2,7 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
-    "requireCleanWorkingDir": false,
-    "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}"
+    "requireCleanWorkingDir": false
   },
   "npm": {
     "publish": false
@@ -28,7 +27,8 @@
           {"type": "ci", "section": "Continuous Integration"}
         ]
       },
-      "infile": "CHANGELOG.md"
+      "infile": "CHANGELOG.md",
+      "header": "# CHANGELOG\n\nAll notable changes to this project will be documented in this file.\n\n"
     }
   },
   "hooks": {

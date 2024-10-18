@@ -47,10 +47,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
 
+      - name: Extract latest changes
+        run: |
+          sed -n "/## \[${{ steps.get_version.outputs.VERSION }}/,/## \[/p" CHANGELOG.md | sed '$d' > RELEASE_NOTES.md
+
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           gh release create v${{ steps.get_version.outputs.VERSION }} \
             --title "Release v${{ steps.get_version.outputs.VERSION }}" \
-            --notes-file CHANGELOG.md
+            --notes-file RELEASE_NOTES.md
