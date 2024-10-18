@@ -7,6 +7,11 @@ on:
 
 env:
   HUSKY: 0
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write  
   
 jobs:
   create-release-branch:
