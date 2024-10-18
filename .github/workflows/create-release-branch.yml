@@ -1,4 +1,4 @@
-name: Create Release Branch and PR
+name: Create a Release Branch and PR
 
 on:
   pull_request:
