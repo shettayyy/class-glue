@@ -1,4 +1,13 @@
-import type { ClassValue } from './types';
+export type ClassObject = { [key: string]: boolean | undefined | null };
+export type ClassArray = ClassValue[];
+export type ClassValue =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | ClassObject
+  | ClassArray;
 
 type StyleObj = { [key: string]: unknown };
 
@@ -71,11 +80,11 @@ function classGlue(styles: StyleObj, ...args: ClassValue[]): StyleObj {
  *   margin: { margin: 5 },
  * };
  *
- * const cx = createClassGlue(styles);
+ * const clgl = createClassGlue(styles);
  *
  * function MyComponent({ isActive }) {
  *   return (
- *     <View style={cx('container', { active: isActive }, ['padding', { margin: true }])}>
+ *     <View style={clgl('container', { active: isActive }, ['padding', { margin: true }])}>
  *       <Text>Hello, World!</Text>
  *     </View>
  *   );

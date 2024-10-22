@@ -1,3 +1,5 @@
+export type ClassObject = { [key: string]: boolean | undefined | null };
+
 /**
  * Combines object keys into a space-separated string based on truthy values.
  *
@@ -12,9 +14,7 @@
  * classGlue({ a: 1, b: 0, c: null, d: undefined, e: 'yes' }); // 'a e'
  *
  */
-export default function classGlue(obj: {
-  [key: string]: boolean | undefined | null;
-}) {
+export default function classGlue(obj: ClassObject) {
   let k: string;
   let cls = '';
   let first = true; // Flag to skip the initial space concatenation

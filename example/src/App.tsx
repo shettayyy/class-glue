@@ -1,6 +1,6 @@
-import classGlue from 'class-glue'; // Import the cx function from your library
+import classGlue from 'class-glue'; // Import the clgl function from your library
 import classGlueString from 'class-glue/join-strings'; // Import the classGlue function from your library
-import cxKeys2Strings from 'class-glue/keys-to-strings'; // Import the classGlue function from your library
+import clglKeys2Strings from 'class-glue/keys-to-strings'; // Import the classGlue function from your library
 import createClassGlue from 'class-glue/merge-module-strings'; // Import the createClassGlue function from your library
 import createClassGlueStyles from 'class-glue/merge-styles'; // Import the createClassGlue function from your library
 import { useState } from 'react';
@@ -12,7 +12,7 @@ const getRandomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
 // createClassGlue accepts a CSS module object and returns a function that merges class names
-const cxModule = createClassGlue(appStyles);
+const clglModule = createClassGlue(appStyles);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,7 +24,7 @@ function App() {
     description: { letterSpacing: '2px' },
   };
 
-  const cxStyles = createClassGlueStyles(styles);
+  const clglStyles = createClassGlueStyles(styles);
 
   // Example usage of classGlue function
   const buttonClasses = classGlue(
@@ -33,15 +33,15 @@ function App() {
     count % 2 === 0 ? 'even-count' : 'odd-count',
   );
 
-  // Example usage of cxKeys2Strings function
-  const cardClasses = cxKeys2Strings({
+  // Example usage of clglKeys2Strings function
+  const cardClasses = clglKeys2Strings({
     card: true,
     'card-highlighted': count > 5,
     [`card-color-${count}`]: true,
   });
 
   // Example usage of classGlue Module Strings function with CSS modules
-  const titleClasses = cxModule(
+  const titleClasses = clglModule(
     'title',
     '',
     null,
@@ -81,7 +81,7 @@ function App() {
     <>
       <h1 className={titleClasses}>Class Glue</h1>
 
-      <p className={subtitleClasses} style={cxStyles('dynamicColor')}>
+      <p className={subtitleClasses} style={clglStyles('dynamicColor')}>
         Class Glue is a lightweight utility library for dynamically generating
         class
       </p>
@@ -90,7 +90,7 @@ function App() {
         <button type="button" className={buttonClasses} onClick={handleClick}>
           Count: {count}
         </button>
-        <p style={cxStyles('dynamicColor', { description: isActive })}>
+        <p style={clglStyles('dynamicColor', { description: isActive })}>
           This text color changes on each click!
         </p>
       </div>

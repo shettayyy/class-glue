@@ -1,5 +1,4 @@
-import classGlue from './index';
-import type { ClassValue } from './types';
+import classGlue, { type ClassValue } from './index';
 
 type StyleModule = { [key: string]: string };
 
@@ -13,8 +12,8 @@ type StyleModule = { [key: string]: string };
  * import styles from './styles.module.css';
  * import createClassGlue from 'class-glue/merge-module-strings';
  *
- * const cx = createClassGlue(styles);
- * cx('title', { titleActive: true }); // Returns: "styles.title styles.titleActive"
+ * const clgl = createClassGlue(styles);
+ * clgl('title', { titleActive: true }); // Returns: "styles.title styles.titleActive"
  */
 export default function createClassGlue(styleModule: StyleModule) {
   const processArg = (arg: ClassValue): ClassValue => {

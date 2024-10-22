@@ -3,32 +3,32 @@ import { describe, expect, it } from 'vitest';
 
 describe('classGlue (string version)', () => {
   it('should return an empty string for no arguments', () => {
-    const cx = createClassGlue({ foo: 'bar' });
-    expect(cx()).toBe('');
+    const clgl = createClassGlue({ foo: 'bar' });
+    expect(clgl()).toBe('');
   });
 
   it('should handle a single string argument', () => {
-    const cx = createClassGlue({ foo: 'bar' });
-    expect(cx('foo')).toBe('bar');
+    const clgl = createClassGlue({ foo: 'bar' });
+    expect(clgl('foo')).toBe('bar');
   });
 
   it('should handle multiple string arguments', () => {
-    const cx = createClassGlue({ foo: 'bar', baz: 'qux' });
-    expect(cx('foo', 'baz')).toBe('bar qux');
+    const clgl = createClassGlue({ foo: 'bar', baz: 'qux' });
+    expect(clgl('foo', 'baz')).toBe('bar qux');
   });
 
   it('should ignore empty strings', () => {
-    const cx = createClassGlue({ foo: 'bar', baz: '' });
-    expect(cx('foo', '', 'baz')).toBe('bar baz');
+    const clgl = createClassGlue({ foo: 'bar', baz: '' });
+    expect(clgl('foo', '', 'baz')).toBe('bar baz');
   });
 
   it('should handle a mix of valid and ignored values', () => {
-    const cx = createClassGlue({ foo: 'bar', baz: 'qux' });
-    expect(cx('foo', null, 'baz', { baz: true })).toBe('bar qux qux');
+    const clgl = createClassGlue({ foo: 'bar', baz: 'qux' });
+    expect(clgl('foo', null, 'baz', { baz: true })).toBe('bar qux qux');
   });
 
   it('should handle all mixed values', () => {
-    const cx = createClassGlue({
+    const clgl = createClassGlue({
       foo: 'bar',
       baz: 'qux',
       classX: 'classX',
@@ -36,7 +36,7 @@ describe('classGlue (string version)', () => {
       classZ: 'classZ',
     });
     expect(
-      cx('', null, undefined, false, true, 'hello', { baz: true }, [
+      clgl('', null, undefined, false, true, 'hello', { baz: true }, [
         'foo',
         'world',
         ['welcome', { classX: true, classGlue: false }],
