@@ -1,6 +1,6 @@
 # Contributing to Class-Glue
 
-We're excited that you're interested in contributing to Class-Glue! This document outlines the process for contributing to this project. Whether you're fixing bugs, improving documentation, or adding new features, your contributions are welcome.
+We're excited that you're interested in contributing to Class Glue! This document outlines the process for contributing to this project. Whether you're fixing bugs, improving documentation, or adding new features, your contributions are welcome.
 
 ## Getting Started
 
