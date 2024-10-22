@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 
 
+## [1.14.0](https://github.com/shettayyy/class-glue/compare/v1.13.1...v1.14.0) (2024-10-22)
+
+
+### Features
+
+* update CONTRIBUTING.md ([#23](https://github.com/shettayyy/class-glue/issues/23)) ([cd33327](https://github.com/shettayyy/class-glue/commit/cd33327b2b3ecd202a157214a4e642b0b651d589))
+
+
+### Chores
+
+* update CHANGELOG.md and refactor to use clgl method ([31bc219](https://github.com/shettayyy/class-glue/commit/31bc219abc9a3469a42bf2f577b0ae168357aef9))
+
 ## [1.13.1](https://github.com/shettayyy/class-glue/compare/v1.13.0...v1.13.1) (2024-10-18)
 
 
