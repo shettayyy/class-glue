@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 
 
+## [1.14.1](https://github.com/shettayyy/class-glue/compare/v1.14.0...v1.14.1) (2024-10-27)
+
+
+### Documentation
+
+* provide a readme guide with a set of instructions and examples ([#25](https://github.com/shettayyy/class-glue/issues/25)) ([b22454c](https://github.com/shettayyy/class-glue/commit/b22454c62a8b3fca7bee00679b4562ccf2e266e9))
+
 ## [1.14.0](https://github.com/shettayyy/class-glue/compare/v1.13.1...v1.14.0) (2024-10-22)
 
 
