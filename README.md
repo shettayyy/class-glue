@@ -1,13 +1,6 @@
 # class-glue 💫
 
-[![npm version](https://img.shields.io/npm/v/class-glue.svg?style=flat)](https://www.npmjs.com/package/class-glue)
-[![npm downloads](https://img.shields.io/npm/dm/class-glue.svg?style=flat)](https://www.npmjs.com/package/class-glue)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/class-glue?label=bundle%20size)](https://bundlephobia.com/package/class-glue)
-[![Coverage](https://img.shields.io/codecov/c/github/shettayyy/class-glue)](https://codecov.io/gh/shettayyy/class-glue)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org)
-[![GitHub stars](https://img.shields.io/github/stars/shettayyy/class-glue.svg?style=social)](https://github.com/shettayyy/class-glue)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![npm version](https://img.shields.io/npm/v/class-glue.svg?style=flat)](https://www.npmjs.com/package/class-glue) [![npm downloads](https://img.shields.io/npm/d18m/class-glue.svg?style=flat)](https://www.npmjs.com/package/class-glue) [![bundle size](https://img.shields.io/bundlephobia/minzip/class-glue?label=bundle%20size)](https://bundlephobia.com/package/class-glue) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/shettayyy/class-glue.svg?style=social)](https://github.com/shettayyy/class-glue) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/shettayyy) [![Release](https://github.com/shettayyy/class-glue/actions/workflows/release.yml/badge.svg)](https://github.com/shettayyy/class-glue/actions/workflows/release.yml) [![Build](https://github.com/shettayyy/class-glue/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/shettayyy/class-glue/actions/workflows/pr-checks.yml)
 
 > A lightweight (< 450B) yet powerful utility for dynamic class name generation in JavaScript applications. Perfect for React, React Native, Vue.js, and any JavaScript project where you need flexible class name handling with type safety. Heavily inspired by [clsx](https://github.com/lukeed/clsx), but with added features for TypeScript, CSS Modules, and React Native styles.
 
@@ -183,5 +176,3 @@ import keysToStrings from 'class-glue/keys-to-strings';
 import createModuleGlue from 'class-glue/merge-module-strings';
 import createStyleGlue from 'class-glue/merge-styles';
 ```
-
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/shettayyy)
