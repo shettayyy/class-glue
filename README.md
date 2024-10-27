@@ -1,83 +1,187 @@
 # class-glue 💫
 
-> class-glue is a lightweight utility library for dynamically generating class names in JavaScript applications. It provides a simple and intuitive way to conditionally apply class names based on variables or conditions, making it easier to manage styles and classNames in React, React Native, and other JavaScript projects. With class-glue, you can efficiently construct classNames without repetitive ternary expressions or complex logic, improving code readability and maintainability.
+[![npm version](https://img.shields.io/npm/v/class-glue.svg?style=flat)](https://www.npmjs.com/package/class-glue)
+[![npm downloads](https://img.shields.io/npm/dm/class-glue.svg?style=flat)](https://www.npmjs.com/package/class-glue)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/class-glue?label=bundle%20size)](https://bundlephobia.com/package/class-glue)
+[![Coverage](https://img.shields.io/codecov/c/github/shettayyy/class-glue)](https://codecov.io/gh/shettayyy/class-glue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org)
+[![GitHub stars](https://img.shields.io/github/stars/shettayyy/class-glue.svg?style=social)](https://github.com/shettayyy/class-glue)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-## Features ✨
+> A lightweight (< 450B) yet powerful utility for dynamic class name generation in JavaScript applications. Perfect for React, React Native, Vue.js, and any JavaScript project where you need flexible class name handling with type safety. Heavily inspired by [clsx](https://github.com/lukeed/clsx), but with added features for TypeScript, CSS Modules, and React Native styles.
 
-- 💡 Supports dynamic class name generation based on conditions.
-- 🔄 Compatible with React, React Native, Vue.js, Angular, and other JavaScript frameworks.
-- 🛠 Lightweight and easy to use, with no external dependencies.
-- 🔍 TypeScript support for type safety and IntelliSense.
-- 🧩 Modular and extensible design, allowing customization and integration with existing projects.
-- 🚀 Optimized performance for minimal impact on application speed and efficiency.
-- 📚 Comprehensive documentation with usage examples and API reference.
-- 🛡️ Robust testing suite with unit tests and integration tests for reliable codebase.
-- 🌐 Cross-platform compatibility, ensuring consistent behavior across different environments.
+## Introduction
 
-## Usage
+class-glue solves the common challenge of managing dynamic class names in modern web applications. Whether you're toggling classes based on state, merging CSS modules, or handling complex conditional styling, class-glue provides an elegant and performant solution.
 
-class-glue provides a main function and multiple utility functions, each available in different formats:
+### Why class-glue?
 
-- CommonJS: `dist/[utility].js`
-- ES Module: `dist/esm/[utility].js`
-- UMD: `dist/umd/[utility].js` (minified version: `dist/umd/[utility].min.js`)
+- 🪶 **Lightweight**: Entire core is just 425B (minified + gzipped), with modular utilities each under 540B
+- 🔍 **Type-Safe**: Built with TypeScript for robust type checking and excellent IDE support
+- 🌐 **Framework Agnostic**: Works seamlessly with React, React Native/Expo, Vue, Angular, or vanilla JavaScript
+- 🧩 **Modular Design**: Import only what you need - each utility can be used standalone
+- 🎯 **Zero Dependencies**: No external dependencies means no bloat in your project
+- 🌳 **Tree-Shakeable**: Modern bundlers can eliminate unused code for optimal bundle size
+- ⚡ **Performance Focused**: Optimized internals with minimal runtime overhead
 
-Where [utility] can be:
+### Core Features
 
-- index (main export)
-- join-strings
-- keys-to-strings
-- merge-module-strings
-- merge-styles
+#### 🎯 Multiple API Styles
 
-For direct browser usage via CDN:
+- **Main API** (`class-glue`): Full-featured class name generation
+- **String Only** (`join-strings`): Optimized for simple string concatenation
+- **Object Keys** (`keys-to-strings`): Efficient object-based class generation
+- **CSS Modules** (`merge-module-strings`): First-class CSS Modules support
+- **Style Objects** (`merge-styles`): React Native and style object handling
+
+#### 💡 Smart Type System
+
+- Full TypeScript support with detailed type definitions
+- Intelligent type inference for better development experience
+- Strict type checking to catch errors early
+
+#### 🛠 Developer Experience
+
+- Comprehensive source maps for easy debugging
+- Detailed error messages in development
+- Extensive documentation with real-world examples
+
+#### 🔋 Production Ready
+
+- Thoroughly tested with 100% coverage
+- Used in production by numerous projects
+- Active maintenance and community support
+
+### Quick Examples
+
+#### Basic Usage
+
+```typescript
+import classGlue from 'class-glue';
+
+classGlue('btn', { active: true }, ['primary']);
+// => 'btn active primary'
+```
+
+#### String-Only Operations
+
+```typescript
+import classGlueString from 'class-glue/join-strings';
+
+classGlueString('card', isActive && 'card-active');
+// => 'card card-active' (if isActive is true)
+```
+
+#### Object-Based Operations
+
+```typescript
+import keysToStrings from 'class-glue/keys-to-strings';
+
+keysToStrings({
+  btn: true,
+  'btn-active': isActive
+});
+// => 'btn btn-active' (if isActive is true)
+```
+
+#### CSS Modules Support
+
+```typescript
+import createModuleGlue from 'class-glue/merge-module-strings';
+import styles from './Button.module.css';
+
+const moduleGlue = createModuleGlue(styles);
+moduleGlue('button', { active: isActive });
+// => 'Button_button_x7d Button_active_d4f'
+```
+
+#### React Native Style Handling
+
+```typescript
+import createStyleGlue from 'class-glue/merge-styles';
+
+const styleGlue = createStyleGlue({
+  base: { padding: 10 },
+  active: { backgroundColor: 'blue' }
+});
+styleGlue('base', { active: isActive });
+// => { padding: 10, backgroundColor: 'blue' }
+```
+
+## Installation
+
+### Package Managers
+
+#### NPM
+
+```bash copy
+npm install class-glue
+```
+
+#### Yarn
+
+```bash copy
+yarn add class-glue
+```
+
+#### PNPM
+
+```bash copy
+pnpm add class-glue
+```
+
+#### Bun
+
+```bash copy
+bun add class-glue
+```
+
+### CDN Usage
 
 ```html
-<!-- Main library -->
+<!-- Global: window.classG -->
 <script src="https://unpkg.com/class-glue"></script>
 
 <!-- Individual utilities -->
-<script src="https://unpkg.com/class-glue/dist/umd/join-strings.min.js"></script>
-<script src="https://unpkg.com/class-glue/dist/umd/keys-to-strings.min.js"></script>
-<script src="https://unpkg.com/class-glue/dist/umd/merge-module-strings.min.js"></script>
-<script src="https://unpkg.com/class-glue/dist/umd/merge-styles.min.js"></script>
+<script src="https://unpkg.com/class-glue/dist/umd/join-strings.min.js"></script>        <!-- window.classGJoinStrings -->
+<script src="https://unpkg.com/class-glue/dist/umd/keys-to-strings.min.js"></script>     <!-- window.classGKeysToStrings -->
+<script src="https://unpkg.com/class-glue/dist/umd/merge-module-strings.min.js"></script> <!-- window.classGMergeModuleStrings -->
+<script src="https://unpkg.com/class-glue/dist/umd/merge-styles.min.js"></script>        <!-- window.classGMergeStyles -->
 ```
 
-When using UMD builds in a browser, the main function and utilities are available under the following names:
+> When using via CDN, the utilities are available as:
+>
+> - `window.classG` (main)
+> - `window.classGJoinStrings`
+> - `window.classGKeysToStrings`
+> - `window.classGMergeModuleStrings`
+> - `window.classGMergeStyles`
 
-- `classG` (main export)
-- `classGJoinStrings`
-- `classGKeysToStrings`
-- `classGMergeModuleStrings`
-- `classGMergeStyles`
+### Import Formats
 
-Example:
+class-glue ships with multiple build formats:
 
-```javascript
-const classNames = classG('foo', { bar: true, baz: false });
-console.log(classNames); // "foo bar"
+| Format | Entry Point | Usage |
+| --- | --- | --- |
+| CommonJS | `dist/index.js` | Node.js, Webpack, etc. |
+| ES Module | `dist/esm/index.js` | Modern bundlers |
+| UMD | `dist/umd/index.min.js` | Direct browser usage |
 
-const joinedClasses = classGJoinStrings('foo', 'bar', 'baz');
-console.log(joinedClasses); // "foo bar baz"
-```
+Each utility is available in all formats above. Import the one that best suits your needs:
 
-## Tree-Shaking
+```typescript copy
+// ES Modules (Recommended)
+import classGlue from 'class-glue';
 
-class-glue is designed to be fully tree-shakeable. When using a modern bundler like webpack, Rollup, or Parcel with ES modules, only the functions you actually use will be included in your final bundle. This means you can safely import from 'class-glue' without worrying about bringing in unnecessary code:
+// CommonJS
+const classGlue = require('class-glue');
 
-```javascript
-import { joinStrings, keysToStrings } from 'class-glue';
-
-// Only the joinStrings and keysToStrings functions will be included in your bundle
-```
-
-For even more granular control, you can import specific functions directly:
-
-```javascript
+// Individual utilities
 import joinStrings from 'class-glue/join-strings';
 import keysToStrings from 'class-glue/keys-to-strings';
-
-// This ensures only the specific functions are imported
+import createModuleGlue from 'class-glue/merge-module-strings';
+import createStyleGlue from 'class-glue/merge-styles';
 ```
 
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/shettayyy)
