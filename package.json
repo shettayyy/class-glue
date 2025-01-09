@@ -43,7 +43,9 @@
       "import": "./dist/esm/merge-styles.js",
       "require": "./dist/merge-styles.js",
       "default": "./dist/umd/merge-styles.js"
-    }
+    },
+    "./dist/*": "./dist/*",
+    "./dist/esm/*": "./dist/esm/*"
   },
   "typesVersions": {
     "*": {
