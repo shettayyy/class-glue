@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 
 
+## [1.14.2](https://github.com/shettayyy/class-glue/compare/v1.14.1...v1.14.2) (2025-01-09)
+
+
+### Chores
+
+* add lib directory mapping and update types versions in package.json ([#27](https://github.com/shettayyy/class-glue/issues/27)) ([f231930](https://github.com/shettayyy/class-glue/commit/f2319306c6ba34cfbc75974ef4c50479851674cf))
+
+
+### Documentation
+
+* create CODE_OF_CONDUCT.md ([a07886b](https://github.com/shettayyy/class-glue/commit/a07886b8e2f670f64b12990f8684f3704743d713))
+
 ## [1.14.1](https://github.com/shettayyy/class-glue/compare/v1.14.0...v1.14.1) (2024-10-27)
 
 
