@@ -10,6 +10,9 @@
   "files": [
     "dist"
   ],
+  "directories": {
+    "lib": "dist"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -44,9 +47,10 @@
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "dist/*"
-      ]
+      "merge-styles": ["./dist/merge-styles.d.ts"],
+      "join-strings": ["./dist/join-strings.d.ts"],
+      "keys-to-strings": ["./dist/keys-to-strings.d.ts"],
+      "merge-module-strings": ["./dist/merge-module-strings.d.ts"]
     }
   },
   "scripts": {
