@@ -1,6 +1,6 @@
 {
   "name": "class-glue",
-  "version": "1.14.2",
+  "version": "1.14.3",
   "description": "Dynamic class name generation made easy with a lightweight utility to simplify styling in React, React Native, and more. No fuss, just class names! 💅✨",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
