@@ -1,6 +1,6 @@
 {
   "name": "class-glue",
-  "version": "1.14.1",
+  "version": "1.14.2",
   "description": "Dynamic class name generation made easy with a lightweight utility to simplify styling in React, React Native, and more. No fuss, just class names! 💅✨",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -47,10 +47,18 @@
   },
   "typesVersions": {
     "*": {
-      "merge-styles": ["./dist/merge-styles.d.ts"],
-      "join-strings": ["./dist/join-strings.d.ts"],
-      "keys-to-strings": ["./dist/keys-to-strings.d.ts"],
-      "merge-module-strings": ["./dist/merge-module-strings.d.ts"]
+      "merge-styles": [
+        "./dist/merge-styles.d.ts"
+      ],
+      "join-strings": [
+        "./dist/join-strings.d.ts"
+      ],
+      "keys-to-strings": [
+        "./dist/keys-to-strings.d.ts"
+      ],
+      "merge-module-strings": [
+        "./dist/merge-module-strings.d.ts"
+      ]
     }
   },
   "scripts": {
