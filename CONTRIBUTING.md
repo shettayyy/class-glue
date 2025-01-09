@@ -2,6 +2,8 @@
 
 We're excited that you're interested in contributing to Class Glue! This document outlines the process for contributing to this project. Whether you're fixing bugs, improving documentation, or adding new features, your contributions are welcome.
 
+**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://kcd.im/pull-request)
+
 ## Getting Started
 
 1. Fork the repository on GitHub.
@@ -42,7 +44,7 @@ We're excited that you're interested in contributing to Class Glue! This documen
 4. Commit your changes:
 
    ```bash
-   git commit -m "Your descriptive commit message"
+   git commit -m "feat: your descriptive commit message"
    ```
 
 5. Push to your fork:
@@ -94,9 +96,5 @@ Choose the template that best fits your contribution type. If you're unsure, use
 - Use the GitHub issue tracker to suggest enhancements.
 - Clearly describe the feature and its potential benefits.
 - Be open to discussion about the feature's implementation.
-
-## Code of Conduct
-
-By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 Thank you for contributing to Class-Glue!
