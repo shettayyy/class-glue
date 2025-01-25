@@ -18,7 +18,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js",
-      "umd": "./dist/umd/index.js"
+      "umd": "./dist/umd/index.js",
+      "default": "./dist/index.js"
     },
     "./join-strings": {
       "types": "./dist/join-strings.d.ts",
