@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 
 
+## [1.14.3](https://github.com/shettayyy/class-glue/compare/v1.14.2...v1.14.3) (2025-01-09)
+
+
+### Bug Fixes
+
+* add wildcard mappings for dist and esm directories in package.json ([#29](https://github.com/shettayyy/class-glue/issues/29)) ([df158cd](https://github.com/shettayyy/class-glue/commit/df158cd013b496b3ff3431ab9b4472b4d26384d8))
+
 ## [1.14.2](https://github.com/shettayyy/class-glue/compare/v1.14.1...v1.14.2) (2025-01-09)
 
 
