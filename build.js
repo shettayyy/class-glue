@@ -26,7 +26,6 @@ async function build() {
     const name = entryPoint.split('/').pop().replace('.ts', '');
     const camelCaseName = toCamelCase(name);
 
-    // ESM and CJS builds (as before)
     await esbuild.build({
       ...shared,
       entryPoints: [entryPoint],

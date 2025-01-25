@@ -18,34 +18,39 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js",
-      "default": "./dist/umd/index.js"
+      "umd": "./dist/umd/index.js"
     },
     "./join-strings": {
       "types": "./dist/join-strings.d.ts",
       "import": "./dist/esm/join-strings.js",
       "require": "./dist/join-strings.js",
-      "default": "./dist/umd/join-strings.js"
+      "umd": "./dist/umd/join-strings.js",
+      "default": "./dist/join-strings.js"
     },
     "./keys-to-strings": {
       "types": "./dist/keys-to-strings.d.ts",
       "import": "./dist/esm/keys-to-strings.js",
       "require": "./dist/keys-to-strings.js",
-      "default": "./dist/umd/keys-to-strings.js"
+      "umd": "./dist/umd/keys-to-strings.js",
+      "default": "./dist/keys-to-strings.js"
     },
     "./merge-module-strings": {
       "types": "./dist/merge-module-strings.d.ts",
       "import": "./dist/esm/merge-module-strings.js",
       "require": "./dist/merge-module-strings.js",
-      "default": "./dist/umd/merge-module-strings.js"
+      "umd": "./dist/umd/merge-module-strings.js",
+      "default": "./dist/merge-module-strings.js"
     },
     "./merge-styles": {
       "types": "./dist/merge-styles.d.ts",
       "import": "./dist/esm/merge-styles.js",
       "require": "./dist/merge-styles.js",
-      "default": "./dist/umd/merge-styles.js"
+      "umd": "./dist/umd/merge-styles.js",
+      "default": "./dist/merge-styles.js"
     },
     "./dist/*": "./dist/*",
-    "./dist/esm/*": "./dist/esm/*"
+    "./dist/esm/*": "./dist/esm/*",
+    "./dist/umd/*": "./dist/umd/*"
   },
   "typesVersions": {
     "*": {
